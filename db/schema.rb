@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_203633) do
+ActiveRecord::Schema.define(version: 2021_09_14_210036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.text "body", null: false
+    t.integer "commentor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentor_id"], name: "index_comments_on_commentor_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
 
   create_table "friends", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -22,6 +32,31 @@ ActiveRecord::Schema.define(version: 2021_09_14_203633) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friend_id"], name: "index_friends_on_friend_id"
     t.index ["user_id"], name: "index_friends_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "liker_id", null: false
+    t.integer "liked_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["liked_id"], name: "index_likes_on_liked_id"
+    t.index ["liker_id"], name: "index_likes_on_liker_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "auther_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["auther_id"], name: "index_posts_on_auther_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "user_requesting_id"
+    t.integer "user_requested_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_requesting_id", "user_requested_id"], name: "index_requests_on_user_requesting_id_and_user_requested_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
