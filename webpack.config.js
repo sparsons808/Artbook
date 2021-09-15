@@ -22,9 +22,6 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '*'],
-    alias: {
-        Images: path.resolve(__dirname, 'app', 'assets', 'images')
-    }
+    extensions: ['.js', '.jsx', '*']
   }
 };
