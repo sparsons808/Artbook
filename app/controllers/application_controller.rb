@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+    helper_method :current_user, :enssure_logged_in, :enssure_logged_out, logged_in?
+
     def login!(user)
         session[:session_token] = user.session_token
     end
@@ -17,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
 
     def logged_in?
-        !current_user.nil?
+        !!current_user
     end
 
     def enssure_logged_out

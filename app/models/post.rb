@@ -26,5 +26,7 @@ class Post < ApplicationRecord
     primary_key: :id,
     foreign_key: :liker_id,
     class_name: :Like
+
+    has_one_attached :post_photo
     
 end
