@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  name            :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  age             :date             not null
+#  bio             :text
+#  location        :string
+#  work            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :name, :age, presence: true
@@ -7,6 +23,46 @@ class User < ApplicationRecord
     attr_reader :password
 
     after_intialize :ensure_session_token
+
+    #makes the connection between posts and their authors
+    has_many :written_posts,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Post
+
+    # makes the connection between a user and their friends
+    has_many :friends,
+    primary_key: :id,
+    foreign_key: :friend_id,
+    class_name: :Friend
+
+    # makes the connection between the user and their friends
+    has_many :written_comments,
+    primary_key: :id,
+    foreign_key: :commentor_id,
+    class_name: :Comment
+
+    # the people the user requested as friends
+    has_many :friends_requested,
+    primary_key: :id,
+    foreign_key: :user_requested_id,
+    class_name: :Request
+
+    # the people who ask to be the users friend
+    has_many :friend_requests,
+    primary_key: :id,
+    foreign_key: :user_requesting_id,
+    class_name: :Request
+
+    has_many :likes,
+    primary_key: :id,
+    foreign_key: :liked_id,
+    class_name: :Like
+
+    has_many :posts_on_profile,
+    primary_key: :id,
+    foreign_key: :user_id_profile,
+    class_name: :Post
 
 
     def self.find_by_credentials(email, password)
