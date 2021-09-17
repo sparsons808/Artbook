@@ -14,10 +14,31 @@ class Api::PostsController < ApplicationController
 
     def index
         @posts = Post.all
-
-        
     end
 
+    def update
+        if current_user.id != @post.auther_id
+            render json: ['you can only delete your own posts']
+        end
+
+        @post = Post.find_by(params[:id])
+        
+        if @post && @post.update_attributes(post_params)
+            render :index
+        else
+            render json: ['could not update post'], status: 401
+        end
+    end
+
+    def destroy
+        @post = Post.find_by(params[:id])
+        if @post
+            @user.destroy
+            render :index
+        else
+            render json: ['could not delete post'], status: 401
+        end
+    end
     private
 
     def post_params
