@@ -13,12 +13,13 @@ class Api::PostsController < ApplicationController
     end
 
     def index
-        @posts = Post.all
+        @posts = Post.all.order('created_at DESC')
+        render :index
     end
 
     def update
         if current_user.id != @post.auther_id
-            render json: ['you can only delete your own posts']
+            render json: ['you can only update your own posts']
         end
 
         @post = Post.find_by(params[:id])
@@ -32,7 +33,7 @@ class Api::PostsController < ApplicationController
 
     def destroy
         @post = Post.find_by(params[:id])
-        if @post
+        if @post && current_user.id == @post.auther_id
             @user.destroy
             render :index
         else
