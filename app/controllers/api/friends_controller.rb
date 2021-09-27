@@ -4,6 +4,18 @@ class Api::FriendsController < ApplicationController
         render :index
     end
 
+    def create 
+        @friend = Friend.new(user_id: current_user.id, friend_id: params[:user_requesting_id])
+        @become_friend = Friend.new(user_id: params[:user_requesting_id], friend_id: current_user.id)
+       
+        if @friend.save && @become_friend.save
+            @request.destroy!
+            render :show
+        else
+            render json: ['Could not add friend'], status: 422
+        end
+    end
+
     def destroy
         @friend = Friend.find_by(id: params[:id])
 
