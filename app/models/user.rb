@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
     attr_reader :password
 
-    after_intialize :ensure_session_token
+    after_initialize :ensure_session_token
 
     #makes the connection between posts and their authors
     has_many :written_posts,
