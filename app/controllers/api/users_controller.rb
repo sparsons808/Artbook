@@ -24,9 +24,9 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @users = selected_user
+        @user = selected_user
 
-        render :json
+        render :show
     
     end
 
@@ -49,7 +49,7 @@ class Api::UsersController < ApplicationController
     private
 
     def selected_user
-        User.find(params[:id])
+        User.find_by(id: params[:id])
     end
 
     def user_id
