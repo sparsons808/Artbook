@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 class Comment < ApplicationRecord
-    validates :body, :post_id, :commentor_id presence: true
+    validates :body, :post_id, :commentor_id, presence: true
 
     belongs_to :a_post,
     primary_key: :id,
@@ -26,4 +26,6 @@ class Comment < ApplicationRecord
     primary_key: :id,
     foreign_key: :liker_id,
     class_name: :Like
+
+    has_many :likes, as: :notable
 end

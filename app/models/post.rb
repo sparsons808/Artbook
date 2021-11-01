@@ -27,6 +27,7 @@ class Post < ApplicationRecord
     foreign_key: :liker_id,
     class_name: :Like
 
-    has_one_attached :post_photo
+    has_many :likes, as: :notable
+
     
 end

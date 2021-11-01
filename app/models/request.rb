@@ -7,6 +7,7 @@
 #  user_requested_id  :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  accepted           :boolean          default(FALSE)
 #
 class Request < ApplicationRecord
     validates :user_requesting_id, uniqueness: { scope: :user_requested_id }

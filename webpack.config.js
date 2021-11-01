@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
   entry: './frontend/entry.jsx',
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    // this is telling where the bundle.js file should go so that rails will load it
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'), 
     filename: './bundle.js',
   },
   module: {

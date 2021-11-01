@@ -2,13 +2,17 @@
 #
 # Table name: likes
 #
-#  id         :bigint           not null, primary key
-#  liker_id   :integer          not null
-#  liked_id   :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :bigint           not null, primary key
+#  liker_id     :integer          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  notable_type :string
+#  notable_id   :bigint
 #
 class Like < ApplicationRecord
+
+    belongs_to :notable, polymorphic: true
+    
     belongs_to :liker,
     primary_key: :id,
     foreign_key: :liked_id,

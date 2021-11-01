@@ -27,6 +27,7 @@ class Api::UsersController < ApplicationController
         @user = selected_user
 
         render :show
+        # try render json: @user or user
     
     end
 
