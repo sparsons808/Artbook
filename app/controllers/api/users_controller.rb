@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
 
     def create
+        # debugger
         @user = User.new(user_params)
         if @user.save
             login!(@user)
@@ -53,7 +54,7 @@ class Api::UsersController < ApplicationController
         User.find_by(id: params[:id])
     end
 
-    def user_id
-        params.require(:user).permit(:name, :email, :password, :bio, :age, :location, :work)
+    def user_params
+        params.require(:user).permit(:name, :email, :password, :bio, :location, :work)
     end
 end

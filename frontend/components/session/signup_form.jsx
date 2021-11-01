@@ -7,7 +7,7 @@ class SignUpForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handChange(type) { 
+    handleChange(type) { 
         return(e) => (
             this.setState({ [type]: e.currentTarget.value })
         )
@@ -19,41 +19,58 @@ class SignUpForm extends React.Component {
     }
 
     render() {
+        // debugger
         const formType = this.props.formType
-        const { name, email, age, password } = this.state
+        const { name, email, password } = this.state
+        // debugger
 
         if(formType === 'Sign Up') {
             return (
                 <form onSubmit={this.handleSubmit}>
+                    <h2>Sign Up</h2>
                     <label>Name:
                         <input 
                             type="text"
-                            onChange={this.handChange('name')}
+                            onChange={this.handleChange('name')}
                             value={name}
                         />
                     </label>
                     <label>Email:
                         <input 
                             type="text"
-                            onChange={this.handChange('email')}
+                            onChange={this.handleChange('email')}
                             value={email}
-                        />
-                    </label>
-                    <label>Age:
-                        <input 
-                            type="text"
-                            onChange={this.handChange('age')}
-                            value={age}
                         />
                     </label>
                     <label>Password:
                         <input 
                             type="password"
-                            onChange={this.handChange('password')}
+                            onChange={this.handleChange('password')}
                             value={password}
                         />
                     </label>
                     <button onClick={this.handleSubmit}>Sign Up!</button>
+                </form>
+            )
+        } else {
+            return (
+
+                <form onSubmit={this.handleSubmit}>
+                    <label>Email:
+                        <input 
+                            type="text"
+                            onChange={this.handleChange('email')}
+                            value={email}
+                        />
+                    </label>
+                    <label>Password:
+                        <input 
+                            type="password"
+                            onChange={this.handleChange('password')}
+                            value={password}
+                        />
+                    </label>
+                    <button onClick={this.handleSubmit}>Log In</button>
                 </form>
             )
         }

@@ -3,7 +3,7 @@ import * as SessionsAPIUtill from '../util/session_api'
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 
-const recieceCurrentUser = user => ({
+const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,
     user
 });
@@ -18,16 +18,16 @@ const logoutCurrentUser = () => ({
 // to store in the users local state
 export const createUser = user => dispatch => (
     SessionsAPIUtill.postUser(user)
-    .then( user => dispatch(recieceCurrentUser(user)))
+    .then( user => dispatch(receiveCurrentUser(user)))
 );
 
 // makes the api call to the back in the create a new session
 // for a user who has credentials to enter the app
 // then dispatches that user to the store
 // which stores it in my sesstions slice of state
-export const logInUser = user => dispatchEvent => (
+export const logInUser = user => dispatch => (
     SessionsAPIUtill.postSession(user)
-    .then( user => dispatch(recieceCurrentUser(user)))
+    .then( user => dispatch(receiveCurrentUser(user)))
 );
 
 // makes the api call to the back end to delete the
