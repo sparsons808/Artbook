@@ -7,7 +7,10 @@ const mSTP = () => ({
         email: '',
         password: ''
     },
-
+    demo: {
+        email: 'demo@gmail.com',
+        password: 'password'
+    },
     formType: 'Log In'
 });
 
