@@ -18,7 +18,6 @@ class SignUpForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.action(this.state)
-            .then(() => this.props.history.push('/feed'));
 
     }
 
@@ -26,7 +25,6 @@ class SignUpForm extends React.Component {
         e.preventDefault()
         // debugger
         this.props.action(this.props.demo)
-            .then(() => this.props.history.push('/feed'));
     }
 
     render() {

@@ -11,7 +11,6 @@ class Nav extends React.Component {
     handleClick(e) {
         e.preventDefault();
         this.props.logout()
-            .then(() => this.props.history.push('/'));
     }
 
     render() {
