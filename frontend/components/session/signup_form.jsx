@@ -33,34 +33,37 @@ class SignUpForm extends React.Component {
         const { name, email, password } = this.state
         // debugger
         const form = formType === 'Sign Up' ? (
-            <form onSubmit={this.handleSubmit}>
-                <h2>Sign Up</h2>
-                <label>Name:
-                    <input 
-                        type="text"
-                        onChange={this.handleChange('name')}
-                        value={name}
-                    />
-                </label>
-                <label>Email:
-                    <input 
-                        type="text"
-                        onChange={this.handleChange('email')}
-                        value={email}
-                    />
-                </label>
-                <label>Password:
-                    <input 
-                        type="password"
-                        onChange={this.handleChange('password')}
-                        value={password}
-                    />
-                </label>
-                <button onClick={this.handleSubmit}>Sign Up!</button>
-            </form>
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <h2>Sign Up</h2>
+                    <label>Name:
+                        <input 
+                            type="text"
+                            onChange={this.handleChange('name')}
+                            value={name}
+                        />
+                    </label>
+                    <label>Email:
+                        <input 
+                            type="text"
+                            onChange={this.handleChange('email')}
+                            value={email}
+                        />
+                    </label>
+                    <label>Password:
+                        <input 
+                            type="password"
+                            onChange={this.handleChange('password')}
+                            value={password}
+                        />
+                    </label>
+                    <button onClick={this.handleSubmit}>Sign Up!</button>
+                </form>
+                <Link to="/">Login</Link>
+            </div>
         ) : (
             <div>
-                <h1>Welcome To ArtBook</h1>
+                <h1>ArtBook</h1>
                 <p>Where Artists Meet!</p>
                 <button onClick={this.demo}>Demo Sign In</button>
                 <div></div>

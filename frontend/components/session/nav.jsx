@@ -14,12 +14,16 @@ class Nav extends React.Component {
     }
 
     render() {
-
+        // debugger
+        const userId = this.props.currentUser.id
         return (
             <header>
                 <h1 className='logo'>ArtBook</h1>
                 <div className="logout">
                     <button onClick={this.handleClick}>Logout</button>
+                </div>
+                <div>
+                    <Link to={`/profile/${userId}`}>Profile</Link>
                 </div>
             </header>
     
