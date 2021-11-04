@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     before_action :enssure_logged_in
 
     def create
-        @post = Post.new(post_params)
+        @post = current_user.written_posts.new(post_params)
 
         if @post.save
             render :show
@@ -22,7 +22,8 @@ class Api::PostsController < ApplicationController
             render json: ['you can only update your own posts']
         end
 
-        @post = Post.find_by(params[:id])
+        @post = Post.find_by(params[:id]) 
+        # have current_user update post same with create
         
         if @post && @post.update_attributes(post_params)
             render :index
@@ -43,6 +44,6 @@ class Api::PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:body, :post_photo, :auther_id)
+        params.require(:post).permit(:body, :photo, :auther_id)
     end
 end

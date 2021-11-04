@@ -1,4 +1,8 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import PostFom from "../posts/posts_form";
+import PostIndex from "../posts/post_index";
+import UserEditForm from "./user_edit_form";
 
 class Profile extends React.Component {
     componentDidMount() {
@@ -6,14 +10,65 @@ class Profile extends React.Component {
         this.props.fetchUsers()
     }
     render() {
-        debugger
+        // debugger
         if (!this.props.user) return null;
+        const { user } = this.props
         return (
-            <div>
+            <div className="profile">
                 {/* need to go into jbuilder to make sure that bio and work are editable on user
                 give demo user a bio and work place */}
                 <div>
-                    {this.props.user.name}
+                    {/* where cover photo and profile photo go */}
+                    <div>
+                        {this.props.user.name}
+                    </div>
+                </div>
+                <div className="profile-nav">
+                    <div>
+                        <NavLink exact to={`/profile/${user.id}/posts`}>Posts</NavLink>
+                    </div>
+                    <div>
+                        <NavLink exact to={`/profile/${user.id}/about`}>About</NavLink>
+                    </div>
+                    <div>
+                        <NavLink exact to={`/profile/${user.id}/friends`}>Friends</NavLink>
+                    </div>
+                    <div>
+                        <NavLink exact to={`/profile/${user.id}/photos`}>Photos</NavLink>
+                    </div>
+                    <div className="edit-profile">
+                        <div>Edit Profile</div>
+                    </div>
+                </div>
+                <div className="profile-wall">
+                    <div className="post-form-profile">
+                        <PostFom user={user} />
+                    </div>
+                    <div className="post-index-profile">
+                        <PostIndex />
+                    </div>
+                </div>
+                <div>
+                    <div className="profile-left">
+                        <span>Intro</span>
+                        <div>
+                           bio: {user.bio}
+                        </div>
+                        <div>
+                           work: {user.work}
+                        </div>
+                        <div>
+                           home: {user.location}
+                        </div>
+                    </div>
+                    <div className="profile-photos">
+                        <span>Photos</span>
+                        <Link to={`/profile/${user.id}/photos`}>See All Photos</Link>
+                    </div>
+                    <div className="profile-friends">
+                        <span>Friends</span>
+                        <Link to={`/profile/${user.id}/friends`} >See All Friends</Link>
+                    </div>
                 </div>
             </div>
         )

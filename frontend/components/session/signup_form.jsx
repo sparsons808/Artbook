@@ -59,7 +59,7 @@ class SignUpForm extends React.Component {
                     </label>
                     <button onClick={this.handleSubmit}>Sign Up!</button>
                 </form>
-                <Link to="/">Login</Link>
+                <Link to="/login">Login</Link>
             </div>
         ) : (
             <div>

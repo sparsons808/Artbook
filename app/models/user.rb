@@ -22,6 +22,9 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    has_one_attached :cover_photo
+    has_one_attached :profile_photo
+
     after_initialize :ensure_session_token
 
     #makes the connection between posts and their authors
