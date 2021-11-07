@@ -13,10 +13,10 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = selected_user
-        if @user && @user.update_attribute(user_params)
+        if @user && @user.update(user_params)
             render :show
         elsif !@user
-            render :show
+            render json: ['could not update user'], status: 422
             # i think that if there is no user they need to be redircted to 
             # sign up no quite sure how to do that here but i think,
             # i can use react router for that so that someone not logged in

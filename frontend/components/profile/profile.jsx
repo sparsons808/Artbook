@@ -1,7 +1,5 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import PostFom from "../posts/posts_form";
-import PostIndex from "../posts/post_index";
 import Modal from "../modal/modal";
 
 class Profile extends React.Component {
@@ -43,10 +41,10 @@ class Profile extends React.Component {
                 </div>
                 <div className="profile-wall">
                     <div className="post-form-profile">
-                        <PostFom user={user} />
+                        {/* <PostFom user={user} /> */}
                     </div>
                     <div className="post-index-profile">
-                        <PostIndex />
+                        {/* <PostIndex /> */}
                     </div>
                 </div>
                 <div>

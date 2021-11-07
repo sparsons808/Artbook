@@ -5,16 +5,19 @@ import LogInContainer from './session/login_container';
 import NavContainer from './session/nav_container';
 import ProfileContainer from './profile/profile_container';
 import { AuthRoute, ProtectedRoute } from "../util/route_utils";
-import Feed from "./posts/feed";
+import UserEditFormContainer from "./profile/user_edit_container";
+import FeedContainer from './posts/post_feed_container';
 
 export default () => (
     <div className="app">
         {/* profile route goes here as /profile/:userId */}
+        <ProtectedRoute path="/" component={NavContainer}/>
         <Switch>
-            <ProtectedRoute path="/feed" component={NavContainer}/>
-            <ProtectedRoute path="/profile/:userId" component={ProfileContainer}/>
+            <AuthRoute exact path="/login" component={LogInContainer}/>
             <AuthRoute path="/signup" component={SignUpContainer}/>
-            <AuthRoute exact path="/" component={LogInContainer}/>
+            <ProtectedRoute path="/feed" component={FeedContainer}/>
+            <ProtectedRoute path="/profile/:userId" component={ProfileContainer}/>
+            <Route path="/profile/:userId/edit" component={UserEditFormContainer}/>
         </Switch>
         
     

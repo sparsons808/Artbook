@@ -3,9 +3,12 @@ import UserEditForm from "./user_edit_form";
 import { closeModal } from "../../actions/modal_actions";
 import { updateUser, fetchUsers } from "../../actions/profile_actions";
 
-const mSTP = (state, ownProps) => ({
+const mSTP = (state, ownProps) => {
+    debugger
+    return ({
     user: state.entities.users[ownProps.userId]
-})
+    })
+}
 
 const mDTP = dispatch => ({
     updateUser: user => dispatch(updateUser(user)),

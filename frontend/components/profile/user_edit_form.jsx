@@ -18,12 +18,14 @@ class UserEditForm extends React.Component {
     }
 
     handleSubmit(e) {
+        // debugger
         e.preventDefault()
+        this.props.closeModal()
         this.props.updateUser(this.state)
     }
 
     render() {
-        
+        // debugger
         if(!this.props.user) return null;
 
         const { name, email, location, work, bio } = this.state

@@ -19,7 +19,7 @@ class Api::PostsController < ApplicationController
 
     def update
         if current_user.id != @post.auther_id
-            render json: ['you can only update your own posts']
+            render json: ['you can only update your own posts'], status: 422
         end
 
         @post = Post.find_by(params[:id]) 

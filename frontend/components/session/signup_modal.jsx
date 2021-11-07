@@ -15,6 +15,7 @@ class SignUpModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.props.closeModal()
         this.props.action(this.state)
             // .then(this.props.closeModal());
 
