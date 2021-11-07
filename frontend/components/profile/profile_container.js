@@ -9,6 +9,8 @@ import {
 } from "../../actions/post_actions";
 import Profile from "./profile";
 
+import { popUpModal } from "../../actions/modal_actions";
+
 const mSTP = ( state, ownProps ) => {
     // debugger
     return ({
@@ -25,7 +27,8 @@ const mDTP = dispatch => ({
     fetchPost: postId => dispatch(fetchPost(postId)),
     createPost: post => dispatch(createPost(post)),
     updatePost: post => dispatch(updatePost(post)),
-    deletePost: postId => dispatch(deletePost(postId))
+    deletePost: postId => dispatch(deletePost(postId)),
+    editProfile: () => dispatch(popUpModal('edituser'))
 });
 
 export default connect(mSTP, mDTP)(Profile);

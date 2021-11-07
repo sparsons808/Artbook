@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
-import SignUpForm from "./signup_form";
+import LogInForm from "./login_form";
 import { logInUser } from "../../actions/session_actions";
-
-const mSTP = () => ({
+import { popUpModal } from "../../actions/modal_actions";
+const mSTP = ({ errors }) => ({
+    errors: errors.session,
     user: {
         email: '',
         password: ''
@@ -15,7 +16,8 @@ const mSTP = () => ({
 });
 
 const mDTP = dispatch => ({
-    action: user => dispatch(logInUser(user))
+    action: user => dispatch(logInUser(user)),
+    popUpModal: () => dispatch(popUpModal('signup'))
 });
 
-export default connect(mSTP, mDTP)(SignUpForm);
+export default connect(mSTP, mDTP)(LogInForm);

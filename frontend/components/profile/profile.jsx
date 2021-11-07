@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import PostFom from "../posts/posts_form";
 import PostIndex from "../posts/post_index";
-import UserEditForm from "./user_edit_form";
+import Modal from "../modal/modal";
 
 class Profile extends React.Component {
     componentDidMount() {
@@ -37,7 +37,8 @@ class Profile extends React.Component {
                         <NavLink exact to={`/profile/${user.id}/photos`}>Photos</NavLink>
                     </div>
                     <div className="edit-profile">
-                        <div>Edit Profile</div>
+                        <div onClick={() => this.props.editProfile()}>Edit Profile</div>
+                        <Modal user={user} />
                     </div>
                 </div>
                 <div className="profile-wall">
