@@ -1,35 +1,37 @@
 import React from "react";
 
-class UserEditForm extends React.Component {
+class UserEdit extends React.Component {
     constructor(props) {
         super(props)
-        this.state = this.props.user
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // debugger
+        this.state = {
+            id: this.props.user.id,
+            name: this.props.user.name,
+            email: this.props.user.email,
+            work: this.props.user.work,
+            location: this.props.user.location,
+            bio: this.props.user.bio
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    // componentDidMount() {
-    //     this.props.fetchUsers()
-    // }
-
     handleChange(type) {
+        
         return (e) => (
             this.setState({ [type]: e.currentTarget.value })
         )
     }
 
     handleSubmit(e) {
-        // debugger
         e.preventDefault()
-        this.props.closeModal()
-        this.props.updateUser(this.state)
-    }
+        debugger
+        this.props.userUpdate(this.state)
+    };
 
     render() {
-        // debugger
-        if(!this.props.user) return null;
-
         const { name, email, location, work, bio } = this.state
-        return (
+
+        return(
             <div className="edit-form">
                 <form onSubmit={this.handleSubmit}>
                     <input 
@@ -62,12 +64,12 @@ class UserEditForm extends React.Component {
                         value={bio}
                         placeholder="Bio"
                     />
+                    
                 </form>
                 <button onClick={this.handleSubmit}>Save</button>
             </div>
         )
     }
-};
+}
 
-
-export default UserEditForm;
+export default UserEdit;

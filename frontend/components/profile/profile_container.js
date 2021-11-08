@@ -12,10 +12,10 @@ import Profile from "./profile";
 import { popUpModal } from "../../actions/modal_actions";
 
 const mSTP = ( state, ownProps ) => {
-    debugger
+    // debugger
     return ({
         user: state.entities.users[ownProps.match.params.userId],
-        currrentUser: state.entities.users[state.session.id]
+        currrentUser: state.session.currrentUser
 
     })
 };

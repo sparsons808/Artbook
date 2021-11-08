@@ -48,6 +48,11 @@ export const updateUser = user => dispatch => (
         .then( user => dispatch(receiveUser(user)))
 );
 
+export const updateUserText = user => dispatch => (
+    UserAPIUtil.updteUser(user)
+        .then( user => dispatch(receiveUser(user)))
+);
+
 export const createPost = post => dispatch => (
     PostAPIUtil.createPost(post)
         .then( post => dispatch(receivePost(post)))

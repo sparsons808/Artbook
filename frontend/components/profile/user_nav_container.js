@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import UserEditForm from "./user_edit_form";
+import UserNav from "./user_nav";
 import { closeModal } from "../../actions/modal_actions";
-import { updateUser, fetchUsers } from "../../actions/profile_actions";
+import { updateUser, fetchUsers, updateUserText } from "../../actions/profile_actions";
 
 const mSTP = (state, ownProps) => {
     debugger
@@ -12,7 +12,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
     updateUser: user => dispatch(updateUser(user)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    updateUserText: user => dispatch(updateUserText(user))
 });
 
-export default connect(mSTP, mDTP)(UserEditForm);
+export default connect(mSTP, mDTP)(UserNav);

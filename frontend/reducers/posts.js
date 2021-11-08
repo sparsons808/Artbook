@@ -1,4 +1,4 @@
-import { RECEIVE_POSTS, RECEIVE_POST, DELETE_POST } from "../actions/profile_actions";
+import { RECEIVE_POSTS, RECEIVE_POST, DELETE_POST } from "../actions/post_actions";
 
 const PostsReducer = (state = {}, action) => {
     Object.freeze(state)

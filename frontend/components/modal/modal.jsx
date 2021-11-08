@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import React from "react";
 import SignUpContainer from "../session/signup_container";
-import UserEditContainer from "../profile/user_edit_container";
 
 const mSTP = ({ modal }) => ({
     modal: modal.modal
@@ -21,9 +20,6 @@ function Modal({ modal, closeModal, user }) {
     switch (modal) {
         case "signup":
             comp = <SignUpContainer/>
-            break;
-        case "edituser":
-            comp = <UserEditContainer userId={user.id} />
             break;
         default:
             return null;

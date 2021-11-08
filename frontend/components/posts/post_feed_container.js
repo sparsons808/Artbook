@@ -11,7 +11,7 @@ import Feed from "./feed"
 const mSTP = (state) => {
     debugger
     return({
-        posts: Object.values(state.entitiers.posts)
+        posts: Object.values(state.entities.posts)
 
     })
 };
@@ -24,4 +24,4 @@ const mDTP = dispatch => ({
     deletePost: postId => dispatch(deletePost(postId))
 });
 
-export default connect(null, mDTP)(Feed); 
+export default connect(mSTP, mDTP)(Feed); 

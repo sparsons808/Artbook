@@ -13,13 +13,29 @@ export const fetchUsers = () => (
     })
 );
 
-export const updateUserInfo = user => (
-    $.ajax({
-        method: 'PATCH',
-        url: `/api/users/${user.id}`,
-        data: { user }
-    })
-);
+export const updateUserInfo = user => {
+    // debugger
+   return ( 
+       $.ajax({
+            method: 'PATCH',
+            url: `/api/users/${user.get('user[id]')}`,
+            data: user,
+            contentType: false,
+            processData: false
+        })
+   )
+};
+
+export const updteUser = user => {
+    // debugger
+   return ( 
+       $.ajax({
+            method: 'PATCH',
+            url: `/api/users/${user.id}`,
+            data: user,
+        })
+   )
+};
 
 export const fetchAllUsers = () => (
     $.ajax({
