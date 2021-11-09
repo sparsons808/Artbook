@@ -7,6 +7,8 @@ class PostIndex extends React.Component {
     }
 
     render() {
+        debugger
+        if(!this.props.posts) return null;
         const { 
             posts, 
             currentUser, 
@@ -24,7 +26,7 @@ class PostIndex extends React.Component {
         ));
 
         return (
-            <div className="post">
+            <div className="post-container">
                 {postItem}
             </div>
         )

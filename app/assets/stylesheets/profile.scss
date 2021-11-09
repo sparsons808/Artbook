@@ -3,9 +3,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-        
+    align-items: center;   
 }
+
 
 
 
@@ -91,6 +91,11 @@
 .cover-photo-edit {
     width: 100px;
     height: 100px;
+}
+
+.cover-photo-edit {
+    display: flex;
+    align-items: flex-end;
 }
 // input {
 //     display: none;

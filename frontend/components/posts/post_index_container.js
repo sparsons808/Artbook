@@ -8,10 +8,13 @@ import {
     deletePost 
 } from "../../actions/post_actions";
 
-const mSTP = state => ({
-    posts: Object.values(state.entites.posts),
-    currentUser: state.session.currentUser
-});
+const mSTP = state => {
+    debugger
+    return ({
+        posts: Object.values(state.entities.posts),
+        currentUser: state.session.currentUser
+    })
+};
 
 const mDTP = dispatch => ({
     createPost: post => dispatch(createPost(post)),

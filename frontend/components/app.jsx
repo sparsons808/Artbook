@@ -5,7 +5,6 @@ import LogInContainer from './session/login_container';
 import NavContainer from './session/nav_container';
 import ProfileContainer from './profile/profile_container';
 import { AuthRoute, ProtectedRoute } from "../util/route_utils";
-import UserNaveContainer from "./profile/user_nav_container";
 import FeedContainer from './posts/post_feed_container';
 
 export default () => (

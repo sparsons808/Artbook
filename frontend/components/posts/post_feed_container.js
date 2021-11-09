@@ -8,13 +8,13 @@ import {
 } from "../../actions/profile_actions";
 import Feed from "./feed"
 
-const mSTP = (state) => {
-    debugger
-    return({
-        posts: Object.values(state.entities.posts)
+// const mSTP = (state) => {
+//     debugger
+//     return({
+//         posts: Object.values(state.entities.posts)
 
-    })
-};
+//     })
+// };
 
 const mDTP = dispatch => ({
     fetchPosts: () => dispatch(fetchPosts()),
@@ -24,4 +24,4 @@ const mDTP = dispatch => ({
     deletePost: postId => dispatch(deletePost(postId))
 });
 
-export default connect(mSTP, mDTP)(Feed); 
+export default connect(null, mDTP)(Feed); 
