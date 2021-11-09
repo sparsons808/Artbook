@@ -3,18 +3,23 @@ import React from "react";
 class PostIndexItem extends React.Component {
     render() {
         // debugger
-        const { body, comments } = this.props.post
+        const { body, comments, author } = this.props.post
         const comment = comments.map((comment, idx) => (
             <li key={idx}>{comment.body}</li>
         ))
         return (
             <div className="post">
                 <div>
+                    {author.name}
+                </div>
+                <div>
                     {body}
                 </div>
-                <ul>
-                    {comment}
-                </ul>
+                <div>
+                    <ul>
+                        {comment}
+                    </ul>
+                </div>
             </div>
         )
     }
