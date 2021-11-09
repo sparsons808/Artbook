@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     before_action :enssure_logged_in
 
     def create
-        @post = current_user.written_posts.new(post_params)
+        @post = current_user.posts.new(post_params)
 
         if @post.save
             render :show

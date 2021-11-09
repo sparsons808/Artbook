@@ -28,9 +28,9 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     #makes the connection between posts and their authors
-    has_many :written_posts,
+    has_many :posts,
     primary_key: :id,
-    foreign_key: :author_id,
+    foreign_key: :auther_id,
     class_name: :Post
 
     # makes the connection between a user and their friends
@@ -40,7 +40,7 @@ class User < ApplicationRecord
     class_name: :Friend
 
     # makes the connection between the user and their friends
-    has_many :written_comments,
+    has_many :comments,
     primary_key: :id,
     foreign_key: :commentor_id,
     class_name: :Comment

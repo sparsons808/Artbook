@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserNaveContainer from "./user_nav_container"
-
+import PostIndexContainerProfile from "../posts/post_index_container_profile";
+import CreatePostContainer from "../posts/create_post_form_container";
 
 class Profile extends React.Component {
     componentDidMount() {
@@ -34,7 +35,7 @@ class Profile extends React.Component {
                 </div>
                 <div className="profile-wall">
                     <div className="post-form-profile">
-                        {/* <PostFom user={user} /> */}
+                        <CreatePostContainer />
                     </div>
                     <div className="post-index-profile">
                         {/* <PostIndex /> */}
@@ -59,6 +60,9 @@ class Profile extends React.Component {
                         <span>Friends</span>
                         <Link to={`/profile/${user.id}/friends`} >See All Friends</Link>
                     </div>
+                </div>
+                <div className="profile-right">
+                    <PostIndexContainerProfile user={user} />
                 </div>
             </div>
         )
