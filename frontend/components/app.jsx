@@ -8,7 +8,6 @@ import FeedContainer from './posts/post_feed_container';
 
 export default () => (
     <div className="app">
-        {/* profile route goes here as /profile/:userId */}
         <Switch>
             <AuthRoute exact path="/" component={LogInContainer}/>
             <AuthRoute path="/signup" component={SignUpContainer}/>
