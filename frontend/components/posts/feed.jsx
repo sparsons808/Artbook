@@ -1,5 +1,6 @@
 import React from "react";
 import PostIndextContainer from "./post_index_container";
+import NavContainer from "../session/nav_container";
 
 class Feed extends React.Component {
     // componentDidMount() {
@@ -8,8 +9,11 @@ class Feed extends React.Component {
 
     render() {
         return(
-            <div className="feed-container">
-                <PostIndextContainer />
+            <div className="feed-page">
+                <NavContainer />
+                <div className="feed-container">
+                    <PostIndextContainer />
+                </div>
             </div>
         )
     }

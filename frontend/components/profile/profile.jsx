@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import UserNaveContainer from "./user_nav_container"
 import PostIndexContainerProfile from "../posts/post_index_container_profile";
 import CreatePostContainer from "../posts/create_post_form_container";
+import NavContainer from "../session/nav_container";
 
 class Profile extends React.Component {
     componentDidMount() {
@@ -16,7 +17,7 @@ class Profile extends React.Component {
         const { user } = this.props
         return (
             <div className="profile">
-                
+                <NavContainer/>
                 <div className="profile-top">
                     
                     <UserNaveContainer userId={user.id} />
