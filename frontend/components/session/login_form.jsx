@@ -24,7 +24,7 @@ class LogInForm extends React.Component {
 
     demo(e) {
         e.preventDefault()
-        // debugger
+        // //debugger
         this.props.action(this.props.demo)
     }
 
@@ -41,12 +41,12 @@ class LogInForm extends React.Component {
     }
 
     render() {
-        // debugger
+        // //debugger
         const formType = this.props.formType
         const { email, password } = this.state
             
         return(
-            <div className="login">
+            <div className="login-container">
                 <div className="left-side">
                     <h1>artbook</h1>
                     <p>Where Artists Meet!</p>

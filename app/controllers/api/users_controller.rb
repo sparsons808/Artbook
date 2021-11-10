@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
     def create
-        # debugger
+        # //debugger
         @user = User.new(user_params)
         if @user.save
             login!(@user)
@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = User.find_by(id: params[:id])
-        debugger
+        
         if @user && @user.update(user_params)
             render :show
         elsif !@user

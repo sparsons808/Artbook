@@ -26,10 +26,22 @@ class PostForm extends React.Component {
                     <textarea
                         onChange={this.handleChange('body')} 
                         value={body}
-                        cols="30" rows="10"
+                        placeholder={`Whats on your mind, ${this.props.currentUser.name} ?`}
+                        cols="45" rows="2.5"
                     ></textarea>
                 </form>
-                <button onClick={this.handleSubmit}>post</button>
+                <div className="post-btns">
+                    <span className="photo-btn" onClick={this.handleSubmit}>
+                        <span>
+                            <input type="submit" value="add photo" />
+                        </span>
+                    </span>
+                    <span className="submit-post" onClick={this.handleSubmit}>
+                        <span>
+                            <input type="submit" value="post" />
+                        </span>
+                    </span>
+                </div>
             </div>
         )
     }

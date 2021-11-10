@@ -1,5 +1,6 @@
 import React from "react";
 import PostIndexItem from "./post_index_item";
+import CreatePostContainer from "./create_post_form_container";
 
 class PostIndex extends React.Component {
     componentDidMount() {
@@ -7,7 +8,7 @@ class PostIndex extends React.Component {
     }
 
     render() {
-        debugger
+        //debugger
         if(!this.props.posts) return null;
         
         const { 
@@ -56,6 +57,7 @@ class PostIndex extends React.Component {
 
         return (
             <div className="post-container">
+                <CreatePostContainer />
                 {postItem}
             </div>
         )

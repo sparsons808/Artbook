@@ -3,12 +3,13 @@ import { createPost } from "../../actions/profile_actions";
 import PostForm from "./posts_form";
 
 const mSTP = (state) => {
-    debugger
+    //debugger
     return ({
         post: {
             auther_id: state.session.currentUser.id,
             body: ''
-        }
+        },
+        currentUser: state.session.currentUser
     })
 
 };

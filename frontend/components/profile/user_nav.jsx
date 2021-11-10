@@ -44,7 +44,7 @@ class UserNav extends React.Component {
 
 
     handleSubmit(e) {
-        // debugger
+        // //debugger
         e.preventDefault()
         const formData = new FormData()
         formData.append('user[id]', this.props.user.id)
@@ -57,14 +57,14 @@ class UserNav extends React.Component {
             formData.append('user[cover_photo]', this.state.coverPhoto)
         }
 
-        debugger
+        //debugger
         // this.props.closeModal()
         this.props.updateUser(formData)
     }
 
 
     render() {
-       debugger
+       //debugger
         if(!this.props.user) return null;
 
         const { user } = this.props
@@ -96,7 +96,7 @@ class UserNav extends React.Component {
                 {coverPhoto()}
                 <br />
                 <div className="cover-photo-edit">
-                    {/* <label htmlFor="cover"><i className="fas fa-camera"></i></label> */}
+                    <label htmlFor="cover"><i className="fas fa-camera"></i></label>
                     <input
                         className="file"
                         type="file"

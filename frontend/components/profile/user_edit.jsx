@@ -3,7 +3,7 @@ import React from "react";
 class UserEdit extends React.Component {
     constructor(props) {
         super(props)
-        // debugger
+        // //debugger
         this.state = {
             id: this.props.user.id,
             name: this.props.user.name,
@@ -24,7 +24,7 @@ class UserEdit extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        debugger
+        //debugger
         this.props.userUpdate(this.state)
     };
 

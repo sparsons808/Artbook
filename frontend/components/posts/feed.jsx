@@ -1,6 +1,5 @@
 import React from "react";
 import PostIndextContainer from "./post_index_container";
-import CreatePostContainer from "./create_post_form_container";
 
 class Feed extends React.Component {
     // componentDidMount() {
@@ -9,8 +8,7 @@ class Feed extends React.Component {
 
     render() {
         return(
-            <div>
-                <CreatePostContainer />
+            <div className="feed-container">
                 <PostIndextContainer />
             </div>
         )

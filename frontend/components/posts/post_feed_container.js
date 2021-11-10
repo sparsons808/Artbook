@@ -9,7 +9,7 @@ import {
 import Feed from "./feed"
 
 // const mSTP = (state) => {
-//     debugger
+//     //debugger
 //     return({
 //         posts: Object.values(state.entities.posts)
 

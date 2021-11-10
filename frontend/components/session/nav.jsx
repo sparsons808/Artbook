@@ -14,10 +14,10 @@ class Nav extends React.Component {
     }
 
     render() {
-        // debugger
+        // //debugger
         const userId = this.props.currentUser.id
         return (
-            <header>
+            <nav>
                 <div>
                     <h1 className='logo'>ArtBook</h1>
                 </div>
@@ -27,7 +27,7 @@ class Nav extends React.Component {
                 <div className="logout">
                     <button onClick={this.handleClick}>Logout</button>
                 </div>
-            </header>
+            </nav>
     
         )
     }

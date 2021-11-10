@@ -2,11 +2,13 @@ import { RECEIVE_POSTS, RECEIVE_POST, DELETE_POST } from "../actions/post_action
 
 const PostsReducer = (state = {}, action) => {
     Object.freeze(state)
-    const nextState = Object({}, state)
+    const nextState = Object.assign({}, state)
 
     switch(action.type) {
         case RECEIVE_POST:
-            return nextState[action.post.id] = action.post
+            debugger
+            nextState[action.post.id] = action.post
+            return nextState
         case RECEIVE_POSTS:
             return { ...action.posts } 
         case DELETE_POST:

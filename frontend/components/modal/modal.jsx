@@ -12,7 +12,7 @@ const mDTP = dispatch => ({
 });
 
 function Modal({ modal, closeModal, user }) {
-//    debugger
+//    //debugger
         
 
     if(!modal) return null;

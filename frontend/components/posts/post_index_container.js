@@ -9,7 +9,7 @@ import {
 } from "../../actions/post_actions";
 
 const mSTP = state => {
-    debugger
+    //debugger
     return ({
         posts: Object.values(state.entities.posts),
         currentUser: state.session.currentUser

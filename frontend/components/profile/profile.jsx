@@ -6,12 +6,12 @@ import CreatePostContainer from "../posts/create_post_form_container";
 
 class Profile extends React.Component {
     componentDidMount() {
-        // debugger
+        // //debugger
         this.props.fetchUsers()
     }
     
     render() {
-        // debugger
+        // //debugger
         if (!this.props.user) return null;
         const { user } = this.props
         return (
