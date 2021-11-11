@@ -1,6 +1,6 @@
 import React from "react";
 import PostIndexItem from "./post_index_item";
-import CreatePostContainer from "./create_post_form_container";
+import Modal from "../modal/modal";
 
 class PostIndex extends React.Component {
     componentDidMount() {
@@ -57,7 +57,16 @@ class PostIndex extends React.Component {
 
         return (
             <div className="post-container">
-                <CreatePostContainer />
+                <div className="post-form">
+                    <form onSubmit={this.handleSubmit}>
+                        <textarea
+                            onClick={() => this.props.popUpModal()} 
+                            placeholder={`Whats on your mind, ${this.props.currentUser.name} ?`}
+                            cols="55" rows="2.5"
+                        ></textarea>
+                    </form>
+                </div>
+                <Modal />
                 {postItem}
             </div>
         )

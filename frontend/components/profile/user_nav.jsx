@@ -1,5 +1,5 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
 
 class UserNav extends React.Component {
     constructor(props) {
@@ -94,9 +94,9 @@ class UserNav extends React.Component {
             <div className="edit-nav-container">
         
                 {coverPhoto()}
-                <br />
+                
                 <div className="cover-photo-edit">
-                    <label htmlFor="cover"><i className="fas fa-camera"></i></label>
+                    {/* <label htmlFor="cover"><i className="fas fa-camera"></i></label> */}
                     <input
                         className="file"
                         type="file"
@@ -105,7 +105,7 @@ class UserNav extends React.Component {
                     />
                     <button onClick={this.handleSubmit}>Save</button>
                 </div>  
-                <br />
+               
                 {profilePhoto()}
                 <div className="profile-photo-edit">
                     <input
@@ -114,6 +114,24 @@ class UserNav extends React.Component {
                         onChange={this.handleFile('profilePhoto')}
                     />
                     <button onClick={this.handleSubmit}>Save</button>
+                </div>
+
+                <div className="username">
+                    <span>
+                        {user.name}
+                    </span>
+                </div>
+
+                <div className="profile-nav">
+                    <div>
+                        <NavLink exact to={`/profile/${user.id}/posts`}>Posts</NavLink>
+                    </div>
+                    <div>
+                        <NavLink exact to={`/profile/${user.id}/about`}>About</NavLink>
+                    </div>
+                    <div>
+                        <NavLink exact to={`/profile/${user.id}/friends`}>Friends</NavLink>
+                    </div>
                 </div>
                 
             </div>

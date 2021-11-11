@@ -195,10 +195,46 @@ body {
 }
 
 .app nav {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 30% 37% 30%;
+    grid-template-rows: 2fr;
+    gap: 5px;
+    grid-template-areas: "left middle right";
+    // justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 5;
     height: 50px;
     background: white;
     box-shadow: 0.01px 1px 10px rgba(205, 205, 205, 0.96);
+}
+
+.logo {
+    padding: 5px;
+    margin-top: 3px;
+    grid-column: 1/2;
+}
+
+.home {
+    grid-area: middle;
+    justify-self: center;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.profile-link-nav {
+    grid-area: right;
+    justify-self: center;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+.logout-dropdown {
+    grid-area: right;
+    justify-self: end;
+    margin-top: 10px;
+    cursor: pointer;
 }

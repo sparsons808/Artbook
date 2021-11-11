@@ -16,54 +16,43 @@ class Profile extends React.Component {
         if (!this.props.user) return null;
         const { user } = this.props
         return (
-            <div className="profile">
+            <div className="profile-page">
                 <NavContainer/>
-                <div className="profile-top">
+                <div className="profile-container">
+                    <div className="profile-top">
+                        
+                        <UserNaveContainer userId={user.id} />
+
+                    </div>
+                    <div className="profile-wall">
+                        <div className="post-form-profile">
+                            <CreatePostContainer />
+                        </div>
+                        <div className="post-index-profile">
+                           <PostIndexContainerProfile user={user} />
+                        </div>
+                    </div>
+                    <div className="profile-left">
+                        <div className="info">
+                            <div>
+                                <span>Intro</span>
+                            </div>
+                            <div>
+                            bio: {user.bio}
+                            </div>
+                            <div>
+                            work: {user.work}
+                            </div>
+                            <div>
+                            home: {user.location}
+                            </div>
+                        </div>
+                        <div className="profile-friends">
+                            <span>Friends</span>
+                            <Link to={`/profile/${user.id}/friends`} >See All Friends</Link>
+                        </div>
+                    </div>
                     
-                    <UserNaveContainer userId={user.id} />
-                
-                    <div className="profile-nav">
-                        <div>
-                            <NavLink exact to={`/profile/${user.id}/posts`}>Posts</NavLink>
-                        </div>
-                        <div>
-                            <NavLink exact to={`/profile/${user.id}/about`}>About</NavLink>
-                        </div>
-                        <div>
-                            <NavLink exact to={`/profile/${user.id}/friends`}>Friends</NavLink>
-                        </div>
-                    </div>
-                </div>
-                <div className="profile-wall">
-                    <div className="post-form-profile">
-                        <CreatePostContainer />
-                    </div>
-                    <div className="post-index-profile">
-                        {/* <PostIndex /> */}
-                    </div>
-                </div>
-                <div className="profile-left">
-                    <div className="info">
-                        <div>
-                            <span>Intro</span>
-                        </div>
-                        <div>
-                           bio: {user.bio}
-                        </div>
-                        <div>
-                           work: {user.work}
-                        </div>
-                        <div>
-                           home: {user.location}
-                        </div>
-                    </div>
-                    <div className="profile-friends">
-                        <span>Friends</span>
-                        <Link to={`/profile/${user.id}/friends`} >See All Friends</Link>
-                    </div>
-                </div>
-                <div className="profile-right">
-                    <PostIndexContainerProfile user={user} />
                 </div>
             </div>
         )

@@ -21,13 +21,13 @@ class PostForm extends React.Component {
     render() {
         const { body } = this.state
         return(
-            <div className="post-form">
+            <div className="post-form-modal">
                 <form onSubmit={this.handleSubmit}>
                     <textarea
                         onChange={this.handleChange('body')} 
                         value={body}
                         placeholder={`Whats on your mind, ${this.props.currentUser.name} ?`}
-                        cols="45" rows="2.5"
+                        cols="55" rows="10"
                     ></textarea>
                 </form>
                 <div className="post-btns">
@@ -37,7 +37,7 @@ class PostForm extends React.Component {
                         </span>
                     </span>
                     <span className="submit-post" onClick={this.handleSubmit}>
-                        <span>
+                        <span onClick={() => this.props.closeModal()}>
                             <input type="submit" value="post" />
                         </span>
                     </span>

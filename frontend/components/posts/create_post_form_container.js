@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { createPost } from "../../actions/profile_actions";
 import PostForm from "./posts_form";
-
+import { popUpModal, closeModal } from "../../actions/modal_actions";
 const mSTP = (state) => {
     //debugger
     return ({
@@ -16,6 +16,8 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => ({
     createPost: post => dispatch(createPost(post)),
+    popUpModal: () => dispatch(popUpModal("editpost")),
+    closeModal: () => dispatch(closeModal())
 });
 
 
