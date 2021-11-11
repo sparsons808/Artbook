@@ -61,7 +61,7 @@ class PostIndex extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <textarea
                             onClick={() => this.props.popUpModal()} 
-                            placeholder={`Whats on your mind, ${this.props.currentUser.name} ?`}
+                            placeholder={`Whats on your mind?`}
                             cols="55" rows="2.5"
                         ></textarea>
                     </form>
