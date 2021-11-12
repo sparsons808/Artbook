@@ -8,6 +8,9 @@ import {
     deletePost 
 } from "../../actions/post_actions";
 
+import { popUpModal, closeModal } from "../../actions/modal_actions";
+
+
 const mSTP = (state, ownProps) => ({
     user: ownProps.user,
     posts: Object.values(state.entities.posts)
@@ -18,7 +21,8 @@ const mDTP = dispatch => ({
     updatePost: post => dispatch(updatePost(post)),
     fetchPosts: () => dispatch(fetchPosts()),
     fetchPost: postId => dispatch(fetchPost(postId)),
-    deletePost: postId => dispatch(deletePost(postId))
+    popUpModal: () => dispatch(popUpModal("editpost")),
+    closeModal: () => dispatch(closeModal())
 });
 
 export default connect(mSTP, mDTP)(PostIndex);

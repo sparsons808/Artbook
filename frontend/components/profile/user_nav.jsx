@@ -96,20 +96,35 @@ class UserNav extends React.Component {
                 {coverPhoto()}
                 
                 <div className="cover-photo-edit">
-                    {/* <label htmlFor="cover"><i className="fas fa-camera"></i></label> */}
+                    <label classname="camera-icon-label" htmlFor="cover">
+                        <img 
+                            className="camera-icon"
+                            src={camera} 
+                            alt="Credit: www.flaticon.com/authors/kiranshastry" 
+                        />
+                    </label>
                     <input
                         className="file"
                         type="file"
                         id="cover"
                         onChange={this.handleFile('coverPhoto')}
                     />
+
                     <button onClick={this.handleSubmit}>Save</button>
                 </div>  
                
                 {profilePhoto()}
                 <div className="profile-photo-edit">
+                    <label classname="camera-icon-label" htmlFor="profile">
+                        <img 
+                            className="camera-icon"
+                            src={camera} 
+                            alt="Credit: www.flaticon.com/authors/kiranshastry" 
+                        />
+                    </label>
                     <input
                         className="file"
+                        id="profile"
                         type="file"
                         onChange={this.handleFile('profilePhoto')}
                     />

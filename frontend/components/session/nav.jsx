@@ -19,10 +19,18 @@ class Nav extends React.Component {
         return (
             <nav>
                 <div className="logo">
-                    <h1 className='logo'>ArtBook</h1>
+                    <img src={logo} alt="www.flaticon.com/authors/hight-quality-icons" />
                 </div>
                 <div className="home">
-                    <Link to="/feed">Home</Link>
+                    <Link to="/feed">
+                        <div className="home-icon-container">
+                            <img 
+                                className="home-icon"
+                                src={home} 
+                                alt="Credit: www.flaticon.com/authors/dave-gandy" 
+                            />
+                        </div>
+                    </Link>
                 </div>
                 <div className="profile-link-nav">
                     <Link to={`/profile/${userId}`}>{this.props.currentUser.name}</Link>

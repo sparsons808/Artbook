@@ -25,9 +25,6 @@ class Profile extends React.Component {
 
                     </div>
                     <div className="profile-wall">
-                        <div className="post-form-profile">
-                            <CreatePostContainer />
-                        </div>
                         <div className="post-index-profile">
                            <PostIndexContainerProfile user={user} />
                         </div>
