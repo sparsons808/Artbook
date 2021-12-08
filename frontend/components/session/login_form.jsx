@@ -41,7 +41,7 @@ class LogInForm extends React.Component {
     }
 
     render() {
-        // //debugger
+        debugger
         const formType = this.props.formType
         const { email, password } = this.state
             

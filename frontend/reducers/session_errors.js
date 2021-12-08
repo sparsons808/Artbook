@@ -8,9 +8,11 @@ const SessionErrors = (state = [], action) => {
 
     switch (action.type) {
         case RECEIVE_SESSION_ERRORS:
-            return action.errors;
+            let next = action.errors
+            return next
         case RECEIVE_CURRENT_USER:
-            return [];
+            let nextState = []
+            return nextState
         default:
             return state
     }

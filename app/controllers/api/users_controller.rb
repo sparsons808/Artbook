@@ -12,8 +12,9 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = User.find_by(id: params[:id])
+        @user.update(user_params)
         
-        if @user && @user.update(user_params)
+        if @user
             render :show
         elsif !@user
             render json: ['could not update user'], status: 422

@@ -14,9 +14,6 @@ class UserNav extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.props.fetchUsers()
-    // }
 
     handleFile(type) {
         let url;
@@ -44,7 +41,6 @@ class UserNav extends React.Component {
 
 
     handleSubmit(e) {
-        // //debugger
         e.preventDefault()
         const formData = new FormData()
         formData.append('user[id]', this.props.user.id)
@@ -57,14 +53,12 @@ class UserNav extends React.Component {
             formData.append('user[cover_photo]', this.state.coverPhoto)
         }
 
-        //debugger
-        // this.props.closeModal()
         this.props.updateUser(formData)
     }
 
 
     render() {
-       //debugger
+       
         if(!this.props.user) return null;
 
         const { user } = this.props
