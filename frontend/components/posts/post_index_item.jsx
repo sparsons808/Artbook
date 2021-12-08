@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Modal from "../modal/modal";
 
 class PostIndexItem extends React.Component {
     render() {
@@ -20,7 +21,8 @@ class PostIndexItem extends React.Component {
                     <div className="user-name">
                         <Link to={`/profile/${author.id}`}>{author.name}</Link>
                     </div>
-                    <div className="post-edit-dropdown">edit post</div>
+                    <div className="post-edit-dropdown" onClick={this.props.popUpModal('editPost')}>edit post</div>
+                    < Modal post={this.props.post} />
                 </div>
                 <div className="post-body">
                     {body}

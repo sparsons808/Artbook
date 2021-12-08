@@ -17,7 +17,7 @@ user_4 = User.create!( { password: "password", email: "demo@gmail.com", name: "D
 post_1 = Post.create!({auther_id: user_1.id, body:"this is a post"})
 post_2 = Post.create!({ auther_id: user_2.id, body:"this is another post"})
 post_3 = Post.create!({ auther_id: user_3.id, body:"this is the third post"})
-post_4 = Post.create!({ auther_id: user_4.id, body:"this is the fourth post"})
+post_4 = Post.create!({ auther_id: user_4.id, body:"this is the fourth post", profile: user_1.id})
 
 comment_1 = Comment.create!({ post_id: post_1.id, body: "I am a comment on this post", commentor_id: user_1.id })
 comment_2 = Comment.create!({ post_id: post_1.id, body: "I am another comment on this post", commentor_id: user_2.id })

@@ -21,10 +21,10 @@ class PostIndex extends React.Component {
         // const filiterd = posts.filter( post => {
         //     return post.author.id === this.props.user.id
         // })
-
+        debugger
         const postItem = this.props.user ? (
             posts.filter( post => (
-                post.author.id === this.props.user.id
+                post.author.id === this.props.user.id || post.profile === this.props.user.id
             )).map( (post, idx) => ( 
                 <PostIndexItem 
                     key={post.id} 
@@ -32,19 +32,24 @@ class PostIndex extends React.Component {
                     user={this.props.user} 
                     deletPost={deletPost}
                     updatePost={updatePost}
+                    popUpModal={this.props.popUpModal}
                 />
             ))
         ) : (
-            posts.map( (post, idx) => ( 
+            posts.filter( post => (
+                post.profile === null
+            )).map( (post, idx) => ( 
                 <PostIndexItem 
                     key={post.id} 
                     post={post} 
                     deletPost={deletPost}
                     updatePost={updatePost}
+                    popUpModal={this.props.popUpModal}
                 />
             ))
         )
         
+        const userProfile = this.props.user ? this.props.user : null
 
         // const postItem = posts.map( (post, idx) => ( 
         //     <PostIndexItem 
@@ -66,7 +71,7 @@ class PostIndex extends React.Component {
                         ></textarea>
                     </form>
                 </div>
-                <Modal />
+                <Modal userProfile={userProfile}/>
                 {postItem}
             </div>
         )

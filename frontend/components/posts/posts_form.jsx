@@ -7,11 +7,14 @@ class PostForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+
     handleChange(type) {
         return (e) => {
             this.setState({ [type]: e.currentTarget.value})
         } 
     }
+    
+   
 
     handleSubmit(e) {
         e.preventDefault()
@@ -19,6 +22,7 @@ class PostForm extends React.Component {
     }
 
     render() {
+        debugger
         const { body } = this.state
         return(
             <div className="post-form-modal">
