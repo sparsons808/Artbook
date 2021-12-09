@@ -11,7 +11,7 @@ import {
 import { popUpModal, closeModal } from "../../actions/modal_actions";
 
 const mSTP = state => {
-    //debugger
+    
     return ({
         posts: Object.values(state.entities.posts),
         currentUser: state.session.currentUser

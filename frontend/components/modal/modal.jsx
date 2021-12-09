@@ -13,7 +13,7 @@ const mDTP = dispatch => ({
     closeModal: () => dispatch(closeModal())
 });
 
-function Modal({ modal, closeModal, user, userProfile, post }) {
+function Modal({ modal, closeModal, user, userProfile, postId }) {
 //    //debugger
         
 
@@ -30,7 +30,7 @@ function Modal({ modal, closeModal, user, userProfile, post }) {
             className = "modal-child-edit"
             break;
         case 'editPost':
-            comp = < EditPostContainer postId={post.Id} />
+            comp = < EditPostContainer postId={postId} />
             className = 'modal-child-edit'
             break;
         default:

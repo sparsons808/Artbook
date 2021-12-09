@@ -10,7 +10,10 @@ const PostsReducer = (state = {}, action) => {
             nextState[action.post.id] = action.post
             return nextState
         case RECEIVE_POSTS:
-            return { ...action.posts } 
+            action.posts.forEach( post => {
+                nextState[post.id] = post
+            })
+            return nextState
         case DELETE_POST:
             delete nextState[action.postId]
             return nextState

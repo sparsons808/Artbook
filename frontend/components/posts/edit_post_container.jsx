@@ -5,9 +5,9 @@ import { popUpModal, closeModal } from "../../actions/modal_actions";
 import PostForm from "./posts_form";
 
 const mSTP = (state, ownProps) => {
-    // debugger
+    
     return ({
-        post: ownProps.post,
+        post: state.posts.ownProps.postId,
         formType: 'Edit',
         currentUser: state.session.currentUser
     })

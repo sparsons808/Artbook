@@ -29,15 +29,16 @@ class PostIndex extends React.Component {
                 <div>
                     <PostIndexItem 
                         key={post.id}
-                        postId={post.id}
-                         
+                        postId={post.id} 
                         post={post}
                         user={this.props.user} 
                         deletPost={deletPost}
                         updatePost={updatePost}
                         popUpModal={this.props.popUpModal}
+                        comments={post.comments}
+                        author={post.author}
                     />
-                    < Modal post={this.props.post} />
+                    < Modal postId={post.id} />
                 </div>
             ))
         ) : (
@@ -46,13 +47,14 @@ class PostIndex extends React.Component {
             )).map( (post, idx) => ( 
                 <div>
                     <PostIndexItem 
-                        key={post.id} 
+                        key={post.id}
+                        postId={post.id} 
                         post={post} 
                         deletPost={deletPost}
                         updatePost={updatePost}
                         popUpModal={this.props.popUpModal}
                     />
-                    < Modal post={this.props.post} />
+                    < Modal postId={post.id} />
                 </div>
             ))
         )
