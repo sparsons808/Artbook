@@ -26,26 +26,34 @@ class PostIndex extends React.Component {
             posts.filter( post => (
                 post.author.id === this.props.user.id || post.profile === this.props.user.id
             )).map( (post, idx) => ( 
-                <PostIndexItem 
-                    key={post.id} 
-                    post={post}
-                    user={this.props.user} 
-                    deletPost={deletPost}
-                    updatePost={updatePost}
-                    popUpModal={this.props.popUpModal}
-                />
+                <div>
+                    <PostIndexItem 
+                        key={post.id}
+                        postId={post.id}
+                         
+                        post={post}
+                        user={this.props.user} 
+                        deletPost={deletPost}
+                        updatePost={updatePost}
+                        popUpModal={this.props.popUpModal}
+                    />
+                    < Modal post={this.props.post} />
+                </div>
             ))
         ) : (
             posts.filter( post => (
                 post.profile === null
             )).map( (post, idx) => ( 
-                <PostIndexItem 
-                    key={post.id} 
-                    post={post} 
-                    deletPost={deletPost}
-                    updatePost={updatePost}
-                    popUpModal={this.props.popUpModal}
-                />
+                <div>
+                    <PostIndexItem 
+                        key={post.id} 
+                        post={post} 
+                        deletPost={deletPost}
+                        updatePost={updatePost}
+                        popUpModal={this.props.popUpModal}
+                    />
+                    < Modal post={this.props.post} />
+                </div>
             ))
         )
         
@@ -65,7 +73,7 @@ class PostIndex extends React.Component {
                 <div className="post-form">
                     <form onSubmit={this.handleSubmit}>
                         <textarea
-                            onClick={() => this.props.popUpModal()} 
+                            onClick={() => this.props.popUpModal('createpost')} 
                             placeholder={`Whats on your mind?`}
                             cols="55" rows="2.5"
                         ></textarea>

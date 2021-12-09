@@ -21,7 +21,7 @@ const mDTP = dispatch => ({
     updatePost: post => dispatch(updatePost(post)),
     fetchPosts: () => dispatch(fetchPosts()),
     fetchPost: postId => dispatch(fetchPost(postId)),
-    popUpModal: () => dispatch(popUpModal("editpost")),
+    popUpModal: (modal) => dispatch(popUpModal(modal)),
     closeModal: () => dispatch(closeModal())
 });
 

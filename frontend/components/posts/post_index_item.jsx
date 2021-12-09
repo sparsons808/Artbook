@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Modal from "../modal/modal";
 
-class PostIndexItem extends React.Component {
-    render() {
+const PostIndexItem = () => {
+    
         const { body, comments, author } = this.props.post
-        //debugger
         const comment = comments ? (
             
             comments.map((comment, idx) => (
@@ -21,8 +19,12 @@ class PostIndexItem extends React.Component {
                     <div className="user-name">
                         <Link to={`/profile/${author.id}`}>{author.name}</Link>
                     </div>
-                    <div className="post-edit-dropdown" onClick={this.props.popUpModal('editPost')}>edit post</div>
-                    < Modal post={this.props.post} />
+                    <span className="comment-btn" >
+                        <span>
+                            <input type="submit"  value="..." onClick={ () => this.props.popUpModal('editPost')} />
+                        </span>
+                    </span>
+                    {/* <div className="post-edit-dropdown" >edit post</div> */}
                 </div>
                 <div className="post-body">
                     {body}
@@ -46,7 +48,7 @@ class PostIndexItem extends React.Component {
                 </div>
             </div>
         )
-    }
+    
 }
 
 // const mSTP = (state, ownProps) => {

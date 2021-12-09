@@ -30,8 +30,9 @@ function Modal({ modal, closeModal, user, userProfile, post }) {
             className = "modal-child-edit"
             break;
         case 'editPost':
-            comp = < EditPostContainer post={post} />
+            comp = < EditPostContainer postId={post.Id} />
             className = 'modal-child-edit'
+            break;
         default:
             return null;
     }

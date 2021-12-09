@@ -5,17 +5,18 @@ import { popUpModal, closeModal } from "../../actions/modal_actions";
 import PostForm from "./posts_form";
 
 const mSTP = (state, ownProps) => {
-
+    // debugger
     return ({
         post: ownProps.post,
-        formType: 'Edit'
+        formType: 'Edit',
+        currentUser: state.session.currentUser
     })
 }
 
 const mDTP = dispatch => ({
     updatePost: post => dispatch(updatePost(post)),
     deletePost: postId => dispatch(deletePost(postId)),
-    popUpModal: () => dispatch(popUpModal('editpost')),
+    popUpModal: (modal) => dispatch(popUpModal(modal)),
     closeModal: () => dispatch(closeModal())
 })
 
@@ -23,8 +24,15 @@ const mDTP = dispatch => ({
 class EditPost extends React.Component {
 
     render() {
+        // debugger
         return (
-            <PostForm />
+            <PostForm 
+                post={this.props.post}
+                formType={this.props.formType}
+                updatePost={this.props.updatePost}
+                deletePost={this.props.deletePost}
+                closeModal={this.props.closeModal}
+            />
         )
     }
 }

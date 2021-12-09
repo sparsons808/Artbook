@@ -18,13 +18,16 @@ class PostForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        this.props.createPost(this.state)
+        // this.props.createPost(this.state)
     }
 
     render() {
+        if( !this.props.post ) return null
+
         debugger
         const { body } = this.state
-        return(
+
+        const form = this.props.formType === 'Create' ? (
             <div className="post-form-modal">
                 <form onSubmit={this.handleSubmit}>
                     <textarea
@@ -46,6 +49,34 @@ class PostForm extends React.Component {
                         </span>
                     </span>
                 </div>
+            </div>
+        ) : (
+            <div className="post-form-modal">
+                <form onSubmit={this.handleSubmit}>
+                    <textarea
+                        onChange={this.handleChange('body')} 
+                        value={body}
+                        placeholder={`Whats on your mind?`}
+                        cols="55" rows="10"
+                    ></textarea>
+                </form>
+                <div className="post-btns">
+                    <span className="photo-btn" onClick={this.handleSubmit}>
+                        <span>
+                            <input type="submit" value="add photo" />
+                        </span>
+                    </span>
+                    <span className="submit-post" onClick={this.handleSubmit}>
+                        <span onClick={() => this.props.closeModal()}>
+                            <input type="submit" value="post" />
+                        </span>
+                    </span>
+                </div>
+            </div>
+        )
+        return(
+            <div>
+                {form}
             </div>
         )
     }

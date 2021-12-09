@@ -19,7 +19,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
     createPost: post => dispatch(createPost(post)),
-    popUpModal: () => dispatch(popUpModal("createpost")),
+    popUpModal: (modal) => dispatch(popUpModal(modal)),
     closeModal: () => dispatch(closeModal())
 });
 

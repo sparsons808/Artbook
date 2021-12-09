@@ -3,6 +3,7 @@ const ModalReducer = (state = null, action) => {
 
     switch (action.type) {
         case POP_UP_MODAL:
+            debugger
             return action.modal
         case HIDE_MODAL:
             return null
