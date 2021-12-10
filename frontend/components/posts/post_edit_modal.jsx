@@ -1,7 +1,10 @@
 import React from "react";
 
 
-const PostEditModal = ({}) => {
+const PostEditModal = ({
+    postId,
+    popUpModal
+}) => {
 
 
     return (
@@ -12,3 +15,5 @@ const PostEditModal = ({}) => {
         </span>
     )
 }
+
+export default PostEditModal;

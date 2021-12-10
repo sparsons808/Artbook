@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PostEditModal from "./post_edit_modal";
 
 const PostIndexItem = ({
     postId,
@@ -25,11 +26,7 @@ const PostIndexItem = ({
     
     const editIcon = () => {
         author.id === currentUser.id ? (
-            <span className="comment-btn" >
-                <span>
-                    <input type="submit"  value="..." onClick={ () => popUpModal('editPost')} />
-                </span>
-            </span>
+            <PostEditModal popUpModal={popUpModal} postId={postId} />
         ) : null
     }
 
