@@ -12,7 +12,7 @@ import Profile from "./profile";
 import { popUpModal } from "../../actions/modal_actions";
 
 const mSTP = ( state, ownProps ) => {
-    // //debugger
+    // //
     return ({
         user: state.entities.users[ownProps.match.params.userId],
         currrentUser: state.session.currrentUser

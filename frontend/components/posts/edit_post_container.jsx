@@ -5,9 +5,10 @@ import { popUpModal, closeModal } from "../../actions/modal_actions";
 import PostForm from "./posts_form";
 
 const mSTP = (state, ownProps) => {
-    
+    const postId = ownProps.postId
+    debugger
     return ({
-        post: state.posts.ownProps.postId,
+        post: state.entities.posts[postId],
         formType: 'Edit',
         currentUser: state.session.currentUser
     })
@@ -24,7 +25,7 @@ const mDTP = dispatch => ({
 class EditPost extends React.Component {
 
     render() {
-        // debugger
+        
         return (
             <PostForm 
                 post={this.props.post}

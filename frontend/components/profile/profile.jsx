@@ -7,12 +7,12 @@ import NavContainer from "../session/nav_container";
 
 class Profile extends React.Component {
     componentDidMount() {
-        // //debugger
+        // //
         this.props.fetchUsers()
     }
     
     render() {
-        // //debugger
+        // //
         if (!this.props.user) return null;
         const { user } = this.props
         return (

@@ -24,8 +24,8 @@ class PostForm extends React.Component {
     render() {
         if( !this.props.post ) return null
 
-        debugger
-        const { body } = this.state
+        
+        const body = this.state.body
 
         const form = this.props.formType === 'Create' ? (
             <div className="post-form-modal">

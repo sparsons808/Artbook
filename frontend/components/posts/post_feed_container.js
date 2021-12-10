@@ -8,13 +8,14 @@ import {
 } from "../../actions/profile_actions";
 import Feed from "./feed"
 
-// const mSTP = (state) => {
-//     //debugger
-//     return({
-//         posts: Object.values(state.entities.posts)
+const mSTP = (state) => {
+    //
+    return({
+        posts: Object.values(state.entities.posts),
+        currentUser: state.session.currentUser
 
-//     })
-// };
+    })
+};
 
 const mDTP = dispatch => ({
     fetchPosts: () => dispatch(fetchPosts()),

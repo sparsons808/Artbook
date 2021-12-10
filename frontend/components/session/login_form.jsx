@@ -24,7 +24,7 @@ class LogInForm extends React.Component {
 
     demo(e) {
         e.preventDefault()
-        // //debugger
+        // //
         this.props.action(this.props.demo)
     }
 
@@ -41,7 +41,7 @@ class LogInForm extends React.Component {
     }
 
     render() {
-        debugger
+        
         const formType = this.props.formType
         const { email, password } = this.state
             

@@ -8,20 +8,20 @@ class PostIndex extends React.Component {
     }
 
     render() {
-        //debugger
+        //
         if(!this.props.posts) return null;
         
         const { 
             posts, 
             currentUser, 
-            deletPost, 
+            deletePost, 
             updatePost 
         } = this.props
         
         // const filiterd = posts.filter( post => {
         //     return post.author.id === this.props.user.id
         // })
-        debugger
+        
         const postItem = this.props.user ? (
             posts.filter( post => (
                 post.author.id === this.props.user.id || post.profile === this.props.user.id
@@ -32,13 +32,14 @@ class PostIndex extends React.Component {
                         postId={post.id} 
                         post={post}
                         user={this.props.user} 
-                        deletPost={deletPost}
+                        deletePost={deletePost}
                         updatePost={updatePost}
                         popUpModal={this.props.popUpModal}
                         comments={post.comments}
                         author={post.author}
+                        currentUser={currentUser}
                     />
-                    < Modal postId={post.id} />
+                    
                 </div>
             ))
         ) : (
@@ -50,11 +51,13 @@ class PostIndex extends React.Component {
                         key={post.id}
                         postId={post.id} 
                         post={post} 
-                        deletPost={deletPost}
+                        deletePost={deletePost}
                         updatePost={updatePost}
                         popUpModal={this.props.popUpModal}
+                        comments={post.comments}
+                        author={post.author}
+                        currentUser={currentUser}
                     />
-                    < Modal postId={post.id} />
                 </div>
             ))
         )

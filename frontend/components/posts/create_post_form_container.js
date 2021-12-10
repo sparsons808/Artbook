@@ -3,7 +3,7 @@ import { createPost } from "../../actions/profile_actions";
 import PostForm from "./posts_form";
 import { popUpModal, closeModal } from "../../actions/modal_actions";
 const mSTP = (state, ownProps) => {
-    debugger
+    
     const id = ownProps.userProfile ? ownProps.userProfile.id : null
     return ({
         post: {

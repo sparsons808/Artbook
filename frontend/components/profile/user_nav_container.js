@@ -4,7 +4,7 @@ import { closeModal } from "../../actions/modal_actions";
 import { updateUser, fetchUsers, updateUserText } from "../../actions/profile_actions";
 
 const mSTP = (state, ownProps) => {
-    //debugger
+    //
     return ({
     user: state.entities.users[ownProps.userId]
     })

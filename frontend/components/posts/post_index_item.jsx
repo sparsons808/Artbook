@@ -1,53 +1,68 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const PostIndexItem = () => {
+const PostIndexItem = ({
+    postId,
+    deletePost,
+    updatePost,
+    popUpModal,
+    comments,
+    author,
+    post,
+    currentUser
+}) => {
     
-        const { body, comments, author } = this.props.post
-        const comment = comments ? (
+    const comment = comments ? (
             
-            comments.map((comment, idx) => (
-                <li key={idx}>{comment.body}</li>
-            ))
-        ) : (
-            null
-        )
+        comments.map((comment, idx) => (
+            <li key={idx}>{comment.body}</li>
+        ))
+    ) : (
+        null
+    )
 
-        return (
-            <div className="post">
-                <div className="post-header">
-                    <div className="user-name">
-                        <Link to={`/profile/${author.id}`}>{author.name}</Link>
-                    </div>
-                    <span className="comment-btn" >
-                        <span>
-                            <input type="submit"  value="..." onClick={ () => this.props.popUpModal('editPost')} />
-                        </span>
-                    </span>
-                    {/* <div className="post-edit-dropdown" >edit post</div> */}
+    const body = post.body
+    
+    const editIcon = () => {
+        author.id === currentUser.id ? (
+            <span className="comment-btn" >
+                <span>
+                    <input type="submit"  value="..." onClick={ () => popUpModal('editPost')} />
+                </span>
+            </span>
+        ) : null
+    }
+
+    return (
+        <div className="post">
+            <div className="post-header">
+                <div className="user-name">
+                    <Link to={`/profile/${author.id}`}>{author.name}</Link>
                 </div>
-                <div className="post-body">
-                    {body}
-                </div>
-                <div className="add-comment">
-                    <span className="like-btn">
-                        <span>
-                            <input type="submit" value="Like" />
-                        </span>
-                    </span>
-                    <span className="comment-btn">
-                        <span>
-                            <input type="submit" value="Comment" />
-                        </span>
-                    </span>
-                </div>
-                <div className='comment-container'>
-                    <ul>
-                        {comment}
-                    </ul>
-                </div>
+                {editIcon()}                
             </div>
-        )
+            <div className="post-body">
+                {body}
+            </div>
+            <div className="add-comment">
+                <span className="like-btn">
+                    <span>
+                        <input type="submit" value="Like" />
+                    </span>
+                </span>
+                <span className="comment-btn">
+                    <span>
+                        <input type="submit" value="Comment" />
+                    </span>
+                </span>
+            </div>
+            <div className='comment-container'>
+                <ul>
+                    {comment}
+                </ul>
+            </div>
+        </div>
+    )
     
 }
 

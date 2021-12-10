@@ -13,7 +13,8 @@ import { popUpModal, closeModal } from "../../actions/modal_actions";
 
 const mSTP = (state, ownProps) => ({
     user: ownProps.user,
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts),
+    currentUser: state.session.currentUser
 })
 
 const mDTP = dispatch => ({

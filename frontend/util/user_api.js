@@ -14,7 +14,7 @@ export const fetchUsers = () => (
 );
 
 export const updateUserInfo = user => {
-    // //debugger
+    // //
    return ( 
        $.ajax({
             method: 'PATCH',
@@ -27,7 +27,7 @@ export const updateUserInfo = user => {
 };
 
 export const updteUser = user => {
-    // //debugger
+    // //
    return ( 
        $.ajax({
             method: 'PATCH',

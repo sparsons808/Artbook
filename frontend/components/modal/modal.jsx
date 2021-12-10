@@ -14,7 +14,7 @@ const mDTP = dispatch => ({
 });
 
 function Modal({ modal, closeModal, user, userProfile, postId }) {
-//    //debugger
+//    //
         
 
     if(!modal) return null;
