@@ -12,12 +12,12 @@
 class Comment < ApplicationRecord
     validates :body, :post_id, :commentor_id, presence: true
 
-    belongs_to :a_post,
+    belongs_to :post,
     primary_key: :id,
     foreign_key: :post_id,
     class_name: :Post
 
-    belongs_to :a_commentor,
+    belongs_to :author,
     primary_key: :id,
     foreign_key: :commentor_id,
     class_name: :User

@@ -30,6 +30,7 @@ function Modal({ modal, closeModal, user, userProfile, postId }) {
             className = "modal-child-edit"
             break;
         case 'editPost':
+            debugger
             comp = < EditPostContainer postId={postId} />
             className = 'modal-child-edit'
             break;
