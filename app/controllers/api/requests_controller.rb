@@ -10,6 +10,26 @@ class Api::RequestsController < ApplicationController
         end
     end
 
+    def index
+        @user = User.find(params[:user_id])
+
+        @requests = @user.friends_requested
+        @recieved_requests = @user.friend_requests
+
+        @requests += current_user.friends_requested
+        @recieved_requests += current_user.friend_requests
+
+        render :index
+    end
+
+    def update
+        @request = Request.find(param[:id])
+
+        if @request.update(request_params)
+            render :show
+        else
+            render json: @friend.errors.full_messages, status: 422
+    end
     def destroy
         @request = Request.find_by(id: params[:id])
 
@@ -23,6 +43,6 @@ class Api::RequestsController < ApplicationController
     private
 
     def request_params
-        params.require(:request).permit(:user_requesting_id, :user_requested_id)
+        params.require(:request).permit(:user_id, :friend_id, :accepted)
     end
 end

@@ -12,10 +12,6 @@ class Api::PostsController < ApplicationController
         end
     end
 
-    def index
-        @posts = Post.all
-        render :index
-    end
 
     def update
         if current_user.id != @post.auther_id

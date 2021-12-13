@@ -8,6 +8,7 @@
 User.destroy_all
 Post.destroy_all
 Comment.destroy_all
+Request.destroy_all
 
 user_1 = User.create!( { password: "password123", email: "moshebilds@yahoo.com", name: "Moses", bio: "why did i ever do this"} )
 user_2 = User.create!( { password: "password1234", email: "yaelbilds@yahoo.com", name: "Yelly", bio: "why did i ever not do this"} )
@@ -27,6 +28,6 @@ comment_5 = Comment.create!({ post_id: post_3.id, body: "I am a comment on this 
 comment_6 = Comment.create!({ post_id: post_3.id, body: "I am a commmmment on this post", commentor_id: user_1.id })
 comment_7 = Comment.create!({ post_id: post_4.id, body: "I am aaaaa comment on this post", commentor_id: user_4.id })
 
-
-
-
+friend_1 = Request.create!({ user_id: user_4.id, friend_id: user_1.id, accepted: true})
+friend_2 = Request.create!({ user_id: user_4.id, friend_id: user_2.id, accepted: true})
+friend_1 = Request.create!({ user_id: user_3.id, friend_id: user_4.id, accepted: true})

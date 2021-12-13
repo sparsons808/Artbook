@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_175731) do
+ActiveRecord::Schema.define(version: 2021_12_13_022928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,12 +84,12 @@ ActiveRecord::Schema.define(version: 2021_12_06_175731) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.integer "user_requesting_id"
-    t.integer "user_requested_id"
+    t.integer "user_id"
+    t.integer "friend_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "accepted", default: false
-    t.index ["user_requesting_id", "user_requested_id"], name: "index_requests_on_user_requesting_id_and_user_requested_id", unique: true
+    t.index ["user_id", "friend_id"], name: "index_requests_on_user_id_and_friend_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
