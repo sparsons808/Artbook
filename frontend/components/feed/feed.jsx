@@ -12,6 +12,7 @@ class Feed extends React.Component {
     }
 
     render() {
+        if(!this.props.posts) return null
         return (
             <div className="feed-page">
                 <NavContainer/>

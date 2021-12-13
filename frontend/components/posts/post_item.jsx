@@ -4,9 +4,6 @@ const PostItem = ({
     post,
     author,
     postId,
-    updatePost,
-    deletePost,
-    popUpModal
 }) => {
 
 
@@ -26,6 +23,14 @@ const PostItem = ({
                         <input type="submit" value="Like" />
                     </span>
                 </span>
+                <span className="comment-btn">
+                    <span>
+                        <input type="submit" value="Comment" />
+                    </span>
+                </span>
+            </div>
+            <div className="comment-container">
+
             </div>
         </div>
     )
