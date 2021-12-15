@@ -11,9 +11,7 @@ const mSTP = (state, ownProps) => {
 };
 
 const mDTP = dispatch => ({
-    updatePost: post => dispatch(updatePost(post)),
-    deletePost: postId => dispatch(deletePost(postId)),
-    popUpModal: () => dispatch(popUpModal('editPost'))
+    updatePost: post => dispatch(updatePost(post))
 });
 
 export default connect(mSTP, mDTP)(DropDown);

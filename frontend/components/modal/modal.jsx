@@ -3,7 +3,7 @@ import { closeModal } from "../../actions/modal_actions";
 import React from "react";
 import SignUpContainer from "../session/signup_container";
 import CreatePostContainer from "../posts/form_container";
-// import EditPostContainer from "../posts/edit_post_container";
+import EditPostContainer from '../posts/edit_post_container';
 
 const mSTP = ({ modal }) => ({
     modal: modal.modal
@@ -30,9 +30,9 @@ function Modal({ modal, closeModal, user, userProfile, postId }) {
             className = "modal-child-edit"
             break;
         case 'editPost':
-           
-            // comp = < EditPostContainer postId={postId} />
-            // className = 'modal-child-edit'
+            debugger
+            comp = <EditPostContainer postId={postId} />
+            className = 'modal-child-edit'
             break;
         default:
             return null;

@@ -1,5 +1,5 @@
 import React from "react";
-import DropDownMenu from "./dropdown_menu";
+import DropDownMenuContainer from "./dropdown_menu";
 
 class DropDown extends React.Component {
     constructor(props) {
@@ -18,20 +18,17 @@ class DropDown extends React.Component {
 
 
     render() {
-        const dropDownMenu = () => (
-            this.state.isOpen ? ( 
-                <DropDownMenu 
+        const dropDownMenu = this.state.isOpen ? ( 
+                <DropDownMenuContainer 
                     postId={this.props.postId} 
                     toggleDropDown={this.toggleDropDown}
-                    popUpModal={this.props.popUpModal}
-                    deletePost={this.props.deletePost}
                 /> ) : null
-        )
+        
         return (
             <div>
                 <div className="post-edit-dropdown" onClick={this.toggleDropDown}>
-                    <img src={dropdown} />
-                    {dropDownMenu()}
+                    <img src={drop} />
+                    {dropDownMenu}
                 </div>
             </div>
         )
