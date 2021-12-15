@@ -3,8 +3,8 @@ class Api::PostsController < ApplicationController
     before_action :enssure_logged_in
 
     def create
-        @post = current_user.posts.new(post_params)
-
+        @post = Post.new(post_params)
+        # debugger
         if @post.save
             render :show
         else
@@ -12,10 +12,6 @@ class Api::PostsController < ApplicationController
         end
     end
 
-    def index
-        @posts = Post.all
-        render :index
-    end
 
     def update
         if current_user.id != @post.auther_id

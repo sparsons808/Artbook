@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import React from "react";
 import SignUpContainer from "../session/signup_container";
-import PostFormContainer from "../posts/create_post_form_container";
-import EditPostContainer from "../posts/edit_post_container";
+import CreatePostContainer from "../posts/form_container";
+// import EditPostContainer from "../posts/edit_post_container";
 
 const mSTP = ({ modal }) => ({
     modal: modal.modal
@@ -26,13 +26,13 @@ function Modal({ modal, closeModal, user, userProfile, postId }) {
             className = "modal-child"
             break;
         case 'createpost':
-            comp = <PostFormContainer userProfile={userProfile}/>
+            comp = <CreatePostContainer userProfile={userProfile}/>
             className = "modal-child-edit"
             break;
         case 'editPost':
-            debugger
-            comp = < EditPostContainer postId={postId} />
-            className = 'modal-child-edit'
+           
+            // comp = < EditPostContainer postId={postId} />
+            // className = 'modal-child-edit'
             break;
         default:
             return null;

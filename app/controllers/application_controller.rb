@@ -27,6 +27,6 @@ class ApplicationController < ActionController::Base
     end
 
     def enssure_logged_in
-        redircted_to '/' unless logged_in?
+        redirect_to '/' unless logged_in?
     end
 end

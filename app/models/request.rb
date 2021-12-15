@@ -10,15 +10,15 @@
 #  accepted           :boolean          default(FALSE)
 #
 class Request < ApplicationRecord
-    validates :user_requesting_id, uniqueness: { scope: :user_requested_id }
+    validates :user_id, :friend_id, presence: true
     
-    belongs_to :requester,
+    belongs_to :requestor,
     primary_key: :id,
-    foreign_key: :user_requested_id,
+    foreign_key: :user_id,
     class_name: :User
 
-    belongs_to :requested,
+    belongs_to :requestee,
     primary_key: :id,
-    foreign_key: :user_requesting_id,
+    foreign_key: :friend_id,
     class_name: :User
 end

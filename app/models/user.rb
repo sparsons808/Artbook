@@ -34,10 +34,7 @@ class User < ApplicationRecord
     class_name: :Post
 
     # makes the connection between a user and their friends
-    has_many :friends,
-    primary_key: :id,
-    foreign_key: :friend_id,
-    class_name: :Friend
+    
 
     # makes the connection between the user and their friends
     has_many :comments,
@@ -48,13 +45,13 @@ class User < ApplicationRecord
     # the people the user requested as friends
     has_many :friends_requested,
     primary_key: :id,
-    foreign_key: :user_requested_id,
+    foreign_key: :user_id,
     class_name: :Request
 
     # the people who ask to be the users friend
     has_many :friend_requests,
     primary_key: :id,
-    foreign_key: :user_requesting_id,
+    foreign_key: :friend_id,
     class_name: :Request
 
     has_many :likes,

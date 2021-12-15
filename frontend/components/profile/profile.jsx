@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserNaveContainer from "./user_nav_container"
-import PostIndexContainerProfile from "../posts/post_index_container_profile";
-import CreatePostContainer from "../posts/create_post_form_container";
+// import PostIndexContainerProfile from "../posts/post_index_container_profile";
+// import CreatePostContainer from "../posts/create_post_form_container";
 import NavContainer from "../session/nav_container";
 
 class Profile extends React.Component {
@@ -26,7 +26,7 @@ class Profile extends React.Component {
                     </div>
                     <div className="profile-wall">
                         <div className="post-index-profile">
-                           <PostIndexContainerProfile user={user} />
+                           {/* <PostIndexContainerProfile user={user} /> */}
                         </div>
                     </div>
                     <div className="profile-left">
