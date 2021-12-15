@@ -1,6 +1,7 @@
 import React from "react";
 import NavContainer from '../session/nav_container';
 import PostContainer from '../posts/posts_container';
+import Modal from "../modal/modal";
 
 class Feed extends React.Component {
     constructor(props) {
@@ -29,6 +30,7 @@ class Feed extends React.Component {
                                 </textarea>
                             </form>
                         </div>
+                        <Modal userProfile={0}/>
                         <PostContainer posts={this.props.posts} />
                     </div>
                 </div>
