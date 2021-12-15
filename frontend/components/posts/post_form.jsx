@@ -42,7 +42,9 @@ class PostForm extends React.Component {
         const formData = new FormData();
         formData.append('post[auther_id]', this.state.auther_id)
         formData.append('post[body]', this.state.body)
-        formData.append('post[profile]', this.state.profile)
+        if(this.state.profile) {
+            formData.append('post[profile]', this.state.profile)
+        }
 
         if(this.state.photo) {
             formData.append('post[photo]', this.state.photo)
