@@ -7,10 +7,14 @@ import {
  deletePost
 } from '../../actions/post_actions'
 import { popUpModal } from "../../actions/modal_actions";
+import { fetchComments } from "../../actions/comment_actions";
+
 const mSTP = (state) => {
+    debugger
     return ({
         posts: state.entities.posts,
-        currentUser: state.session.currentUser
+        currentUser: state.session.currentUser,
+        comments: state.entities.comments
     })
 }
 
@@ -19,6 +23,7 @@ const mDTP = dispatch => ({
     updatePost: (post) => dispatch(updatePost(post)),
     createPost: (post) => dispatch(createPost(post)),
     deletePost: (postId) => dispatch(deletePost(postId)),
+    fetchComments: () => dispatch(fetchComments()),
     popUpModal: () => dispatch(popUpModal('createpost'))
 })
 

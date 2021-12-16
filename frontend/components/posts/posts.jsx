@@ -8,8 +8,9 @@ class Posts extends React.Component {
 
     render() {
         const { posts } = this.props
-        
+        debugger
         const post = Object.values(posts).map( (post) => {
+            debugger
             return (
                 <PostItem 
                     key={post.id}

@@ -9,11 +9,11 @@ class Feed extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchPosts()
+        this.props.fetchPosts().then(this.props.fetchComments())
     }
 
     render() {
-        if(!this.props.posts) return null
+        if(!this.props.posts || !this.props.comments) return null
         return (
             <div className="feed-page">
                 <NavContainer/>

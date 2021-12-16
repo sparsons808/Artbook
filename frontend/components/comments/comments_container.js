@@ -2,8 +2,10 @@ import { connect } from "react-redux";
 import Comments from './comments';
 import { deleteComment, updateComment } from "../../actions/comment_actions";
 
-const mSTP = (state) => ({
-    comments: state.entities.comments
+const mSTP = (state, ownProps) => ({
+    comments: state.entities.comments,
+    currentUser: state.session.currentUser,
+    postId: ownProps.postId
 })
 
 const mDTP = dispatch => ({

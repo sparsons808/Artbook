@@ -1,9 +1,8 @@
 class Api::CommentsController < ApplicationController
 
     def index
-        @comments = @post.comments.build(:post_id => params[:post_id])
-
-        render :index
+        @comments = Comment.all
+        render :show
     end
 
     def create
