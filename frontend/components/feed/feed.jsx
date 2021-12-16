@@ -31,7 +31,7 @@ class Feed extends React.Component {
                             </form>
                         </div>
                         <Modal userProfile={0}/>
-                        <PostContainer posts={this.props.posts} />
+                        <PostContainer posts={this.props.posts} comments={this.props.comments} />
                     </div>
                 </div>
             </div>
