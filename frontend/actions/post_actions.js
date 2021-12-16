@@ -39,7 +39,7 @@ export const fetchPosts = () => dispatch => {
     return (
         PostAPIUtil.fetchAllPosts()
             .then( rez => {
-                debugger
+                
                 dispatch(receivePosts(rez.posts))
             })
     )

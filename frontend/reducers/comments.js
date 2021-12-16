@@ -10,7 +10,7 @@ const CommentsReducer = (state = {}, action) => {
 
     switch(action.type) {
         case RECEIVE_COMMENTS:
-            debugger
+            
             return action.comments
         case RECEIVE_COMMENT:
             nextState[action.comment.id] = action.comment

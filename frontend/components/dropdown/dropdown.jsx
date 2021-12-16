@@ -20,8 +20,9 @@ class DropDown extends React.Component {
     render() {
         const dropDownMenu = this.state.isOpen ? ( 
                 <DropDownMenuContainer 
-                    postId={this.props.postId} 
+                    elementId={this.props.id} 
                     toggleDropDown={this.toggleDropDown}
+                    type={this.props.type}
                 /> ) : null
         
         return (

@@ -10,7 +10,7 @@ import { popUpModal } from "../../actions/modal_actions";
 import { fetchComments } from "../../actions/comment_actions";
 
 const mSTP = (state) => {
-    debugger
+    
     return ({
         posts: state.entities.posts,
         currentUser: state.session.currentUser,

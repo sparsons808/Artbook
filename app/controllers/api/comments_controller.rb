@@ -30,7 +30,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.find_by(id: params[:id])
 
         if @comment.destroy
-            render :index
+            render json: { message: 'success' }
         else
             render json: @comment.errors.full_messages, status: 422
         end

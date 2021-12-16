@@ -114,7 +114,7 @@ This snippet handles the main functionality of uploading a photo to your own pro
                 {coverPhoto()}
                 
                 <div className="cover-photo-edit">
-                    <label classname="camera-icon-label" htmlFor="cover">
+                    <label className="camera-icon-label" htmlFor="cover">
                         <img 
                             className="camera-icon"
                             src={camera} 
@@ -133,7 +133,7 @@ This snippet handles the main functionality of uploading a photo to your own pro
                
                 {profilePhoto()}
                 <div className="profile-photo-edit">
-                    <label classname="camera-icon-label" htmlFor="profile">
+                    <label className="camera-icon-label" htmlFor="profile">
                         <img 
                             className="camera-icon"
                             src={camera} 

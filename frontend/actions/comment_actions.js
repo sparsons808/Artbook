@@ -20,11 +20,11 @@ const removeComment = commentId => ({
 });
 
 export const fetchComments = () => dispatch => {
-    debugger
+    
     return (
         CommentAPIUtil.fetchComments()
             .then( res => {
-                debugger
+                
                 dispatch(receiveComments(res.comments))
             })
     )
