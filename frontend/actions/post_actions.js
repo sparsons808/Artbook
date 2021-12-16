@@ -19,19 +19,27 @@ const receivePosts = posts => ({
     posts
 });
 
-export const createPost = post => dispatch => (
+export const createPost = (post) => dispatch => (
     PostAPIUtil.createPost(post)
         .then( post => dispatch(receivePost(post)))
 );
 
-export const updatePost = post => dispatch => (
-    PostAPIUtil.updatePost(post)
-        .then( post => dispatch(receivePost(post)))
-);
+export const updatePost = (post, id) => dispatch => {
+    
+    return (
+        PostAPIUtil.updatePost(post, id)
+            .then( post => dispatch(receivePost(post)))
+    )
+
+}
+
 
 export const fetchPosts = () => dispatch => (
     PostAPIUtil.fetchAllPosts()
-        .then( posts => dispatch(receivePosts(posts)))
+        .then( posts => {
+            debugger
+            dispatch(receivePosts(posts))
+        })
 );
 
 export const fetchPost = postId => dispatch => (

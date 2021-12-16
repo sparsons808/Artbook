@@ -5,7 +5,6 @@ import { closeModal } from "../../actions/modal_actions";
 
 const mSTP = (state, ownprops) => {
     const id = ownprops.profileId ? ownprops.profileId : null
-
     return({
         post: {
             auther_id: state.session.currentUser.id,

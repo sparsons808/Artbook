@@ -50,11 +50,16 @@ class PostForm extends React.Component {
             formData.append('post[photo]', this.state.photo)
         }
 
-        this.props.action(formData).then(this.props.closeModal());
+        if (this.props.formType === 'Edit') {
+            
+            this.props.action(formData, this.props.post.id).then(this.props.closeModal());
+        } else {
+            this.props.action(formData).then(this.props.closeModal());
+        }
     }
 
     render() {
-
+        
         const photoPreview = this.state.photoUrl ? (
             <img className="post-photo-preview" src={this.state.photoUrl} />
         ) : (

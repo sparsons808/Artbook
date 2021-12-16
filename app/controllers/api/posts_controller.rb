@@ -4,7 +4,7 @@ class Api::PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        # debugger
+        # 
         if @post.save
             render :show
         else
@@ -14,15 +14,12 @@ class Api::PostsController < ApplicationController
 
 
     def update
-        if current_user.id != @post.auther_id
-            render json: ['you can only update your own posts'], status: 422
-        end
 
-        @post = Post.find_by(params[:id]) 
+        @post = Post.find(params[:id]) 
         # have current_user update post same with create
         
-        if @post && @post.update_attributes(post_params)
-            render :index
+        if @post && @post.update(post_params)
+            render :show
         else
             render json: ['could not update post'], status: 401
         end

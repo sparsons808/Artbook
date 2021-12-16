@@ -3,7 +3,7 @@ import { closeModal } from "../../actions/modal_actions";
 import React from "react";
 import SignUpContainer from "../session/signup_container";
 import CreatePostContainer from "../posts/form_container";
-// import EditPostContainer from "../posts/edit_post_container";
+import EditPostContainer from "../posts/edit_post_container";
 
 const mSTP = ({ modal }) => ({
     modal: modal.modal
@@ -15,28 +15,43 @@ const mDTP = dispatch => ({
 
 function Modal({ modal, closeModal, user, userProfile, postId }) {
 //    //
-        
+    
 
     if(!modal) return null;
     let comp;
     let className;
-    switch (modal) {
-        case "signup":
-            comp = <SignUpContainer/>
-            className = "modal-child"
+
+    switch(typeof modal === "string") {
+        case true:
+            switch (modal) {
+                case "signup":
+                    comp = <SignUpContainer/>
+                    className = "modal-child"
+                    break;
+                case 'createpost':
+                    comp = <CreatePostContainer userProfile={userProfile}/>
+                    className = "modal-child-edit"
+                    break;
+                default:
+                    return null;
+            }
             break;
-        case 'createpost':
-            comp = <CreatePostContainer userProfile={userProfile}/>
-            className = "modal-child-edit"
-            break;
-        case 'editPost':
-           
-            // comp = < EditPostContainer postId={postId} />
-            // className = 'modal-child-edit'
+        case false:
+            switch(typeof modal === "number") {
+                case true:
+                    
+                    comp = <EditPostContainer postId={modal} />
+                    className = 'modal-child-edit'
+                    break;
+                default:
+                    return null
+            }
             break;
         default:
-            return null;
+            return null
+
     }
+    
 
 
 

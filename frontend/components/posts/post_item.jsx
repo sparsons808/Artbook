@@ -6,7 +6,7 @@ const PostItem = ({
     postId,
     currentUser
 }) => {
-
+    
     const postPhoto = () => (
         <div className="post-photo">
             { post.photo ? (
