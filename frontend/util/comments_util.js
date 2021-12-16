@@ -1,11 +1,14 @@
 
-export const createComment = comment => (
-    $.ajax({
-        method: 'POST',
-        url: '/api/comments',
-        data: comment
-    })
-);
+export const createComment = comment => {
+    return (
+
+        $.ajax({
+            method: 'POST',
+            url: '/api/comments',
+            data: { comment }
+        })
+    )
+};
 
 export const updateComment = comment => (
     $.ajax({

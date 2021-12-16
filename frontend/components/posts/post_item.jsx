@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DropDownContainer from '../dropdown/dropdown_container';
 import CommentContainer from '../comments/comments_container';
+import CommentFormContainer from '../comments/comment_form_container';
 
 const PostItem = ({
     post,
@@ -58,6 +59,7 @@ const PostItem = ({
             <div className="comment-container">
                 <CommentContainer postId={postId} />
             </div>
+            <CommentFormContainer postId={postId} />
         </div>
     )
 
