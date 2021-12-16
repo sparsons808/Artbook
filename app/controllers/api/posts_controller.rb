@@ -26,10 +26,10 @@ class Api::PostsController < ApplicationController
     end
 
     def destroy
-        @post = Post.find_by(params[:id])
-        if @post && current_user.id == @post.auther_id
-            @user.destroy
-            render :index
+        @post = Post.find(params[:id])
+        if @post
+            @post.destroy
+            render :show
         else
             render json: ['could not delete post'], status: 401
         end

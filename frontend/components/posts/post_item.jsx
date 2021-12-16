@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DropDownContainer from '../dropdown/dropdown_container';
+
 const PostItem = ({
     post,
     author,
@@ -19,9 +21,9 @@ const PostItem = ({
 
     const editPostButton = () => (
         <div className="edit-post">
-            {/* {author.id === currentUser.id ? (
-                
-            ) } */}
+            { author.id === currentUser.id ? (
+                <DropDownContainer postId={postId} />
+            ) : null }
         </div>
     )
     return (
@@ -29,6 +31,9 @@ const PostItem = ({
             <div className="post-header">
                 <div className="user-name">
                     <Link to={`/profile/${author.id}`}>{author.name}</Link>
+                </div>
+                <div>
+                    {editPostButton()}
                 </div>
             </div>
             <div className="post-photo-container">
