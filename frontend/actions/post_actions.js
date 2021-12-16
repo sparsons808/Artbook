@@ -1,4 +1,5 @@
 import * as PostAPIUtil from "../util/post_api";
+import { receiveComments, reveiveComments } from './comment_actions';
 
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const DELETE_POST = 'DELETE_POST';
@@ -36,9 +37,9 @@ export const updatePost = (post, id) => dispatch => {
 
 export const fetchPosts = () => dispatch => (
     PostAPIUtil.fetchAllPosts()
-        .then( posts => {
-            debugger
-            dispatch(receivePosts(posts))
+        .then( rez => {
+            dispatch(receivePosts(rez.posts))
+            dispatch(receiveComments(rez.comments))
         })
 );
 

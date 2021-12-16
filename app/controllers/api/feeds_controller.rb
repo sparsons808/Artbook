@@ -12,7 +12,6 @@ class Api::FeedsController < ApplicationController
         friends.each do |friend|
             @posts += friend.requestee.posts
             friend.requestee.posts.each do |post|
-                debugger
                 @comments += post.comments
             end
         end
