@@ -5,7 +5,12 @@ import { deleteComment, updateComment } from "../../actions/comment_actions";
 const mSTP = (state, ownProps) => ({
     comments: state.entities.comments,
     currentUser: state.session.currentUser,
-    postId: ownProps.postId
+    postId: ownProps.postId,
+    comment: {
+        post_id: ownProps.postId,
+        body: '',
+        commentor_id: state.session.currentUser.id
+    }
 })
 
 const mDTP = dispatch => ({

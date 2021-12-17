@@ -28,7 +28,7 @@ class DropDown extends React.Component {
         return (
             <div>
                 <div className="post-edit-dropdown" onClick={this.toggleDropDown}>
-                    <img src={drop} />
+                    <img className="drop-image"src={drop} />
                     {dropDownMenu}
                 </div>
             </div>

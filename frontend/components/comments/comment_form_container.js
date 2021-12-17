@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createComment } from "../../actions/comment_actions";
+import { createComment, fetchComments } from "../../actions/comment_actions";
 
 const mSTP = (state, ownProps) => {
     return ({
@@ -13,7 +13,8 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = dispatch => ({
-    createComment: (comment) => dispatch(createComment(comment))
+    createComment: (comment) => dispatch(createComment(comment)),
+    fetchComments: () => dispatch(fetchComments())
 });
 
 class CommentForm extends React.Component {
@@ -22,6 +23,7 @@ class CommentForm extends React.Component {
         this.state = this.props.comment
 
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleEnter = this.handleEnter.bind(this)
     }
 
     handleChange(body) {
@@ -30,22 +32,31 @@ class CommentForm extends React.Component {
         }
     }
 
+    handleEnter(e) {
+        if(e.code === "Enter") {
+            this.handleSubmit(e)
+        }
+    }
     handleSubmit(e) {
         e.preventDefault()
         this.props.createComment(this.state)
-            .then(() => this.setState({ 'body': ''}))
+            .then(() => {
+                this.setState({ body: ''})
+                this.props.fetchComments()
+            })
     }
  
     render() {
         return (
             <div className="comment-form-container">
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        type="text" 
-                        placeholder="Write a critique..."
-                        onChange={this.handleChange('body')}
-                    />
-                </form>
+                <input 
+                    type="text" 
+                    placeholder="Write a critique..."
+                    onChange={this.handleChange('body')}
+                    onKeyDown={this.handleEnter}
+                    value={this.state.body}
+                />
+                
             </div>
         )
     }
