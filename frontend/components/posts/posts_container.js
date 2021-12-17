@@ -6,7 +6,8 @@ import { popUpModal } from "../../actions/modal_actions";
 const mSTP = (state, ownProps) => {
     return ({
         posts: ownProps.posts,
-        currentUser: state.session.currentUser
+        currentUser: state.session.currentUser,
+        comments: ownProps.comments
     })
 }
 

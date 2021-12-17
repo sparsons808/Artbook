@@ -3,14 +3,17 @@ import Modal from "../modal/modal";
 import { deletePost } from "../../actions/post_actions";
 import { popUpModal } from "../../actions/modal_actions";
 import { connect } from "react-redux";
+import { deleteComment } from "../../actions/comment_actions";
 
 const mSTP = (state, ownProps) => ({
-    postId: ownProps.postId,
-    toggleDropDown: ownProps.toggleDropDown
+    id: ownProps.elementId,
+    toggleDropDown: ownProps.toggleDropDown,
+    type: ownProps.type
 })
 const mDTP = dispatch => ({
     deletePost: (postId) => dispatch(deletePost(postId)),
-    popUpModal: (postId) => dispatch(popUpModal(postId))
+    popUpModal: (postId) => dispatch(popUpModal(postId)),
+    deleteComment: (commentId) => dispatch(deleteComment(commentId))
 })
 
 class DropDownMenu extends React.Component { 
@@ -21,9 +24,12 @@ class DropDownMenu extends React.Component {
 
 
     handleDelete(e) {
-        
         e.preventDefault()
-        this.props.deletePost(this.props.postId).then(this.props.toggleDropDown())
+        if(this.props.type === 'Post') {
+            this.props.deletePost(this.props.elementId).then(this.props.toggleDropDown())
+        } else {
+            this.props.deleteComment(this.props.elementId).then(this.props.toggleDropDown())
+        }
     }
 
 
@@ -36,9 +42,15 @@ class DropDownMenu extends React.Component {
                     <img src={trash} className="trash-icon"/>
                     Delete
                 </div>
-                <div onClick={() => this.props.popUpModal(this.props.postId)}>
-                    Edit Post
-                </div>
+                { this.props.type === 'Post' ? (
+                    <div onClick={() => this.props.popUpModal(this.props.elementId)}>
+                        Edit Post
+                    </div>
+                ) : (
+                    <div>
+                        Edit Comment
+                    </div>
+                )}
             </div>
         )
     }

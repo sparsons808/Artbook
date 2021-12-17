@@ -1,16 +1,15 @@
 class Api::CommentsController < ApplicationController
 
     def index
-        @comments = @post.comments.build(:post_id => params[:post_id])
-
-        render :index
+        @comments = Comment.all
+        render :show
     end
 
     def create
         @comment = Comment.new(comment_params)
 
         if @comment.save
-            render :index
+            render json: { message: 'success'}
         else
             render json: @comment.errors.full_messages, status: 422
         end
@@ -31,7 +30,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.find_by(id: params[:id])
 
         if @comment.destroy
-            render :index
+            render json: { message: 'success' }
         else
             render json: @comment.errors.full_messages, status: 422
         end

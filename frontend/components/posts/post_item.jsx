@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DropDownContainer from '../dropdown/dropdown_container';
+import CommentContainer from '../comments/comments_container';
+import CommentFormContainer from '../comments/comment_form_container';
 
 const PostItem = ({
     post,
@@ -32,7 +34,7 @@ const PostItem = ({
                 <div className="user-name">
                     <Link to={`/profile/${author.id}`}>{author.name}</Link>
                 </div>
-                <div>
+                <div className="edit-post-btn">
                     {editPostButton()}
                 </div>
             </div>
@@ -55,8 +57,9 @@ const PostItem = ({
                 </span>
             </div>
             <div className="comment-container">
-
+                <CommentContainer postId={postId} />
             </div>
+            <CommentFormContainer postId={postId} />
         </div>
     )
 

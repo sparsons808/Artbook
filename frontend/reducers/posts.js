@@ -11,7 +11,7 @@ const PostsReducer = (state = {}, action) => {
             return nextState
         case RECEIVE_POSTS:
             
-            return action.posts.posts
+            return action.posts
         case DELETE_POST:
             delete nextState[action.postId]
             return nextState

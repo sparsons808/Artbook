@@ -6,7 +6,8 @@ import { popUpModal } from "../../actions/modal_actions";
 const mSTP = (state, ownProps) => {
 
     return ({
-        postId: ownProps.postId
+        id: ownProps.postId,
+        type: 'Post'
     })
 };
 

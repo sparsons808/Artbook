@@ -90,7 +90,7 @@ class UserNav extends React.Component {
                 {coverPhoto()}
                 
                 <div className="cover-photo-edit">
-                    <label classname="camera-icon-label" htmlFor="cover">
+                    <label className="camera-icon-label" htmlFor="cover">
                         <img 
                             className="camera-icon"
                             src={camera} 
@@ -109,7 +109,7 @@ class UserNav extends React.Component {
                
                 {profilePhoto()}
                 <div className="profile-photo-edit">
-                    <label classname="camera-icon-label" htmlFor="profile">
+                    <label className="camera-icon-label" htmlFor="profile">
                         <img 
                             className="camera-icon"
                             src={camera} 

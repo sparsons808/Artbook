@@ -1,0 +1,34 @@
+.comment-form-container {
+    padding: 10px;
+    width: inherit;
+}
+
+.comment-form-container input {
+    border: none;
+    border-radius: 21px;
+    width: 90%;
+    padding: 6px 5px;
+    margin-right: 2px;
+    background-color: rgb(235, 233, 233);
+}
+
+.comment-item {
+    display: flex;
+    padding-bottom: 6px;
+    
+}
+
+.comment-content {
+    background-color: rgb(235, 233, 233);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3px;
+    padding: 15px;
+    border-radius: 14px;
+    max-width: max-content;
+}
+
+.commentor-name {
+    padding-bottom: 7px;
+}
