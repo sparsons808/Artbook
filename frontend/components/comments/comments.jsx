@@ -20,6 +20,7 @@ class Comments extends React.Component {
                         updateComment={this.props.updateComment}
                         deleteComment={this.props.deleteComment}
                         currentUser={this.props.currentUser}
+                        userPhoto={comment.userphoto}
                     />
                 )
             }

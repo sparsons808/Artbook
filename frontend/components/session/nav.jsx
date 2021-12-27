@@ -59,13 +59,13 @@ class Nav extends React.Component {
                 </div>
                 <div className="logout-dropdown">
                     <div onClick={this.openDropDown} alt="https://roundicons.com/">
-                        <img src={logoutdrop} />
+                        <img className="logout-photo" src={logoutdrop} />
                     </div>
-                    { this.state ? (
+                    { this.state.open ? (
                         <div className="logout-menu">
                             <div onClick={this.handleClick} > 
-                                <img src={logout} alt="https://www.flaticon.com/authors/smashicons" />
-                                <span>Logout</span>
+                                <img  src={logout} alt="https://www.flaticon.com/authors/smashicons" />
+                                <span className="logout-logout">Logout</span>
                             </div>
                         </div>
                         ) : (

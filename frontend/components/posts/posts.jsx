@@ -21,6 +21,7 @@ class Posts extends React.Component {
                     deletePost={this.props.deletePost}
                     popUpModal={this.props.popUpModal}
                     currentUser={this.props.currentUser}
+                    userPhoto={post.userphoto}
                 />
             )
         })
