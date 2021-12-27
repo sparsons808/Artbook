@@ -223,3 +223,47 @@
 .comment-btn span input:hover {
     background-color: rgb(233, 233, 233);
 }
+
+.links-container {
+    width: 131px;
+    height: 283px;
+    padding-left: 30px;
+    padding-top: 19px;
+}
+
+.links-container div {
+    display: flex;
+    padding: 10px;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.links-container img {
+    width: 35px;
+}
+
+.links-container div a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: flex-end;
+}
+
+.links-container div a span {
+    margin-left: 9px;
+}
+
+.github-link {
+    margin-left: -16px;
+}
+
+.side-menue-profile-pic {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.to-currentUser {
+    margin-left: -21px;
+}

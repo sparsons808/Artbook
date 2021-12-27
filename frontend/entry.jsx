@@ -5,18 +5,19 @@ import Root from './components/root'
 import { fetchAllPosts } from './util/post_api'
 
 document.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('root');
-    let preloadedState = undefined;
+    let store;
     if (window.currentUser) {
-        preloadedState = {
-            session: {
-                currentUser: window.currentUser
-            }
+      const preloadedState = {
+        session: { currentUser: window.currentUser },
+        entities: {
+          users: { [window.currentUser.id]: window.currentUser }
         }
+      };
+      store = configureStore(preloadedState);
+      delete window.currentUser;
+    } else {
+      store = configureStore();
     }
-
-    window.fetchAllPosts = fetchAllPosts ;
-    
-    const store = configureStore(preloadedState);
-    ReactDOM.render(<Root store={store}/>, root);
+    const root = document.getElementById('root');
+    ReactDOM.render(<Root store={store} />, root);
 })
