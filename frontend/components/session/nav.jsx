@@ -33,7 +33,18 @@ class Nav extends React.Component {
                     </Link>
                 </div>
                 <div className="profile-link-nav">
-                    <Link to={`/profile/${userId}`}>{this.props.currentUser.name}</Link>
+                    <Link className="profile-nav" to={`/profile/${userId}`}>
+                        <div className="nav-img-container">
+                            { this.props.currentUser.profilePhotoUrl ? (
+                                <img className="nav-img" src={this.props.currentUser.profilePhotoUrl} />
+                            ) : (
+                                <img className="nav-img" src={profilephoto} />
+                            )}
+                        </div>
+                        <div className="current-user-name">
+                            {this.props.currentUser.name}
+                        </div>
+                    </Link>
                 </div>
                 <div className="logout-dropdown">
                     <button onClick={this.handleClick}>Logout</button>
