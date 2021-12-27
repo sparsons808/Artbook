@@ -5,12 +5,23 @@ import { Link, Redirect } from "react-router-dom";
 class Nav extends React.Component {
     constructor(props) {
         super(props)
-        this.handleClick = this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this);
+        this.openDropDown = this.openDropDown.bind(this);
+        this.state = {
+            open: false
+        }
     }
 
     handleClick(e) {
         e.preventDefault();
         this.props.logout()
+    }
+
+    openDropDown(e) {
+        e.preventDefault();
+        this.setState(prevState => ({
+            open: !prevState.open
+        }));
     }
 
     render() {
@@ -47,7 +58,19 @@ class Nav extends React.Component {
                     </Link>
                 </div>
                 <div className="logout-dropdown">
-                    <button onClick={this.handleClick}>Logout</button>
+                    <div onClick={this.openDropDown} alt="https://roundicons.com/">
+                        <img src={logoutdrop} />
+                    </div>
+                    { this.state ? (
+                        <div className="logout-menu">
+                            <div onClick={this.handleClick} > 
+                                <img src={logout} alt="https://www.flaticon.com/authors/smashicons" />
+                                <span>Logout</span>
+                            </div>
+                        </div>
+                        ) : (
+                        <div className="no-dropdown"></div>
+                    )}
                 </div>
             </nav>
     
