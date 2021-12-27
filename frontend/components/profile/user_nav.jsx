@@ -67,7 +67,7 @@ class UserNav extends React.Component {
                 {user.coverPhotoUrl ? (
                     <img src={user.coverPhotoUrl} alt="" />
                 ) : (
-                    <div className="cover-replacement"></div>
+                    <img src={coverphoto} />
                 )
                 }
             </div>
@@ -77,7 +77,7 @@ class UserNav extends React.Component {
                 {user.profilePhotoUrl ? (
                     <img src={user.profilePhotoUrl}/>
                 ): (
-                    <p>{user.name}</p>
+                    <img src={profilephoto} />
                 )
                 } 
             </div>

@@ -20,6 +20,13 @@ class Feed extends React.Component {
                 <div className="feed-container">
                     <div className="post-container">
                         <div className="post-form">
+                            <div className="profile-photo" >
+                                { this.props.currentUser.profilePhotoUrl ? (
+                                    <img src={this.props.currentUser.profilePhotoUrl}/>
+                                ) : (
+                                    <img src={profilephoto}/>
+                                )}
+                            </div>
                             <form>
                                 <textarea 
                                     onClick={() => this.props.popUpModal()}
