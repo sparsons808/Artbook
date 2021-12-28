@@ -43,8 +43,7 @@ class UserNav extends React.Component {
         
     }
 
-    toggleSave(e) {
-        e.preventDefault()
+    toggleSave() {
         this.setState(prevState => ({
             isOpen: !prevState.isOpen
         }))
@@ -68,8 +67,11 @@ class UserNav extends React.Component {
         if(this.state.coverPhoto) {
             formData.append('user[cover_photo]', this.state.coverPhoto)
         }
-
-        this.props.updateUser(formData).then(this.toggleSave())
+        this.toggleSave()
+        
+        this.props.updateUser(formData).then(
+            this.props.fetchUser(this.props.user.id) 
+        )
     }
 
 
@@ -102,7 +104,14 @@ class UserNav extends React.Component {
         
         return (
             <div className="edit-nav-container">
-        
+                
+                { this.state.isOpen ? (
+                    <div className="save-cancle">
+                        <div onClick={this.handleSubmit}>Save</div>
+                        <div onClick={this.cancel}>Cancel</div>
+                    </div>
+                ) : null }
+
                 {coverPhoto()}
                 
                 <div className="cover-photo-edit">
@@ -121,12 +130,6 @@ class UserNav extends React.Component {
                         onChange={this.handleFile('coverPhoto')}
                     />
                 </div>
-                { this.state.isOpen ? (
-                    <div className="save-cancle">
-                        <div onClick={this.handleSubmit}>Save</div>
-                        <div onClick={this.cancel}>Cancle</div>
-                    </div>
-                ) : null }
                 
                 {profilePhoto()}
                 <div className="profile-photo-edit">
@@ -143,7 +146,6 @@ class UserNav extends React.Component {
                         type="file"
                         onChange={this.handleFile('profilePhoto')}
                     />
-                    <button onClick={this.handleSubmit}>Save</button>
                 </div>
 
                 <div className="username">

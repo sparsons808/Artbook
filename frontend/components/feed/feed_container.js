@@ -13,7 +13,7 @@ const mSTP = (state) => {
     
     return ({
         posts: state.entities.posts,
-        currentUser: state.session.currentUser,
+        currentUser: state.entities.users[state.session.currentUser.id],
         comments: state.entities.comments
     })
 }

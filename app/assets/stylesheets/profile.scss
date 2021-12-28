@@ -24,16 +24,18 @@
 .profile-photo-edit {
     border-radius: 50%;
     background-color: lightgray;
-    width: 50px;
-    height: 50px;
+    width: 41px;
+    height: 41px;
     grid-column: 7/8;
     grid-row: 8/9;
+    margin-left: 6px;
+    margin-top: 1px;
 }
 
 .profile-photo-edit label img {
     padding: 5px;
-    margin-left: 8px;
-    margin-top: 7px;
+    margin-left: 3px;
+    margin-top: 3px;
     cursor: pointer;
     width: 25px;
     height: 25px;
@@ -225,4 +227,36 @@
 .profile-left {
     grid-column: 2/6;
     grid-row: 10/13;
+}
+
+.save-cancle {
+    position: absolute;
+    display: flex;
+    width: 168px;
+    height: 72px;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(355%) translateY(-160px) translateZ(26px);
+    background-color: lightgray;
+    opacity: 75%;
+    border-radius: 6px;
+    z-index: 1;
+}
+
+.save-cancle div {
+    display: flex;
+    background-color: rgb(194, 194, 194);
+    font-size: 14px;
+    opacity: 85%;
+    width: 61px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-cancle div:hover {
+    background-color: darkgray;
+
 }

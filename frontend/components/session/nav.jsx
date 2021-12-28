@@ -25,7 +25,7 @@ class Nav extends React.Component {
     }
 
     render() {
-        // //
+        
         const userId = this.props.currentUser.id
         return (
             <nav>
