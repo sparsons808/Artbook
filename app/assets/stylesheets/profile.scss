@@ -267,3 +267,38 @@
     font-weight: bold;
 }
 
+.friend a img {
+    width: 89px;
+    height: 92px;
+    border-radius: 13px;
+    padding: 6px;
+}
+
+.friend a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.friend a div {
+    margin-left: 9px;
+    padding-bottom: 2px;
+}
+
+.profile-friends span {
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 8px;
+    text-decoration: underline;
+}
+
+
+
+.friend-icon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;;
+    align-items: center;
+}

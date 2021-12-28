@@ -4,6 +4,7 @@ import UserNaveContainer from "./user_nav_container"
 import NavContainer from "../session/nav_container";
 import Modal from "../modal/modal";
 import PostContainer from "./profile_post_container";
+import Friends from "../friends/friends";
 
 class Profile extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class Profile extends React.Component {
         // //
         if (!this.props.user) return null;
         
-        const { user, posts, comments } = this.props
+        const { user, posts, comments, users } = this.props
         return (
             <div className="profile-page">
                 <NavContainer/>
@@ -77,7 +78,7 @@ class Profile extends React.Component {
                         </div>
                         <div className="profile-friends">
                             <span>Friends</span>
-                            <Link to={`/profile/${user.id}/friends`} >See All Friends</Link>
+                            <Friends friends={users}/>
                         </div>
                     </div>
                     
