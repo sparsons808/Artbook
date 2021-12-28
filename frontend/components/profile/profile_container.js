@@ -17,7 +17,7 @@ const mSTP = ( state, ownProps ) => {
     const posts = state.entities.posts ? Object.values(state.entities.posts) : null
     return ({
         user: state.entities.users[ownProps.match.params.userId],
-        currentUser: state.session.currentUser,
+        currentUser: state.entities.users[state.session.currentUser.id],
         posts: posts,
         users: state.entities.users
 
