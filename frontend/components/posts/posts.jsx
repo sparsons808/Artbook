@@ -8,7 +8,7 @@ class Posts extends React.Component {
 
     render() {
         const { posts, user, comments, currentUser } = this.props
-        // debugger
+        // 
         const post = user ? (
             posts.map( post => {
                 if(post.profile === user.id) {
