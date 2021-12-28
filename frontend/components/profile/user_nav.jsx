@@ -9,9 +9,12 @@ class UserNav extends React.Component {
             coverPhoto: null,
             profilePhotoUrl: null,
             coverPhotoUrl: null,
+            isOpen: false
         }
         
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggleSave = this.toggleSave.bind(this);
+        this.cancel = this.cancel.bind(this)
     }
 
 
@@ -32,6 +35,7 @@ class UserNav extends React.Component {
             }
             if(file) {
                 fileReader.readAsDataURL(file);
+                this.toggleSave()
             }
 
         }
@@ -39,6 +43,18 @@ class UserNav extends React.Component {
         
     }
 
+    toggleSave(e) {
+        e.preventDefault()
+        this.setState(prevState => ({
+            isOpen: !prevState.isOpen
+        }))
+    }
+
+    cancel(e) {
+        e.preventDefault()
+        this.setState({ coverPhotoUrl: null, profilePhotoUrl: null })
+        this.toggleSave()
+    }
 
     handleSubmit(e) {
         e.preventDefault()
@@ -53,7 +69,7 @@ class UserNav extends React.Component {
             formData.append('user[cover_photo]', this.state.coverPhoto)
         }
 
-        this.props.updateUser(formData)
+        this.props.updateUser(formData).then(this.toggleSave())
     }
 
 
@@ -97,16 +113,21 @@ class UserNav extends React.Component {
                             alt="Credit: www.flaticon.com/authors/kiranshastry" 
                         />
                     </label>
+                    <span className="camera-cover">Edit Cover Photo</span>
                     <input
                         className="file"
                         type="file"
                         id="cover"
                         onChange={this.handleFile('coverPhoto')}
                     />
-
-                    <button onClick={this.handleSubmit}>Save</button>
-                </div>  
-               
+                </div>
+                { this.state.isOpen ? (
+                    <div className="save-cancle">
+                        <div onClick={this.handleSubmit}>Save</div>
+                        <div onClick={this.cancel}>Cancle</div>
+                    </div>
+                ) : null }
+                
                 {profilePhoto()}
                 <div className="profile-photo-edit">
                     <label className="camera-icon-label" htmlFor="profile">
