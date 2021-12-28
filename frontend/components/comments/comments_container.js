@@ -4,7 +4,7 @@ import { deleteComment, updateComment } from "../../actions/comment_actions";
 
 const mSTP = (state, ownProps) => ({
     comments: state.entities.comments,
-    currentUser: state.session.currentUser,
+    currentUser: state.entities.users[state.session.currentUser.id],
     postId: ownProps.postId,
     comment: {
         post_id: ownProps.postId,

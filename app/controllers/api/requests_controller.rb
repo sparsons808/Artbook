@@ -4,22 +4,31 @@ class Api::RequestsController < ApplicationController
         @request = Request.new(request_params)
 
         if @request.save
-            render :show
+            render 'api/users/show'
         else
             render json: ["could not request friendship"], status: 422
         end
     end
 
-    def index
-        @user = User.find(params[:user_id])
+    def show
+        @user = User.find(params[:id])
+        @users = []
 
-        @requests = @user.friends_requested
-        @recieved_requests = @user.friend_requests
+        friends = current_user.friends_requested.where(accepted: true).includes(:requestee)
+        other_friends = current_user.friend_requests.where(accepted: true).includes(:requestor)
+        friends += other_friends
 
-        @requests += current_user.friends_requested
-        @recieved_requests += current_user.friend_requests
+        friends.each do |friend|
+            if current_user != friend.requestee
+                @users += friend.requestee
+            else
+                @users += friend.requestor
+            end
+        end
 
-        render :index
+        
+
+        render 'api/users/index'
     end
 
     def update

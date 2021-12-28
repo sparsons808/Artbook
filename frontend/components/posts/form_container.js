@@ -4,7 +4,8 @@ import { createPost } from "../../actions/post_actions";
 import { closeModal } from "../../actions/modal_actions";
 
 const mSTP = (state, ownprops) => {
-    const id = ownprops.profileId ? ownprops.profileId : null
+    const id = ownprops.userProfile ? ownprops.userProfile : null
+    
     return({
         post: {
             auther_id: state.session.currentUser.id,

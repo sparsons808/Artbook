@@ -2,9 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, withRouter } from "react-router-dom";
 
-const mSTP = (state) => ({
-    loggedin: Boolean(state.session.currentUser)
-});
+const mSTP = (state) => {
+    
+    return (
+        { loggedin: Boolean(state.session.currentUser) }  
+    )
+
+};
 
 const Auth = ({ loggedin, path, component: Component }) => (
     <Route

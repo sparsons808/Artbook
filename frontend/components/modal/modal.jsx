@@ -29,6 +29,7 @@ function Modal({ modal, closeModal, user, userProfile, postId }) {
                     className = "modal-child"
                     break;
                 case 'createpost':
+                    
                     comp = <CreatePostContainer userProfile={userProfile}/>
                     className = "modal-child-edit"
                     break;

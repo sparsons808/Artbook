@@ -49,6 +49,9 @@ class PostForm extends React.Component {
         if(this.state.photo) {
             formData.append('post[photo]', this.state.photo)
         }
+        if(this.state.profile) {
+            formData.append('post[profile]', this.state.profile)
+        }
 
         if (this.props.formType === 'Edit') {
             

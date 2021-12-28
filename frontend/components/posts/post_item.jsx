@@ -8,7 +8,8 @@ const PostItem = ({
     post,
     author,
     postId,
-    currentUser
+    currentUser,
+    userPhoto
 }) => {
     
     const postPhoto = () => (
@@ -32,11 +33,14 @@ const PostItem = ({
         <div key={postId + postId}className="post">
             <div className="post-header">
                 <div className="user-name">
+                    { userPhoto ? (
+                        <img className="userphoto-post" src={userPhoto} />
+                    ) : (
+                        <img className="userphoto-post" src={profilephoto} />
+                    )}
                     <Link to={`/profile/${author.id}`}>{author.name}</Link>
                 </div>
-                <div className="edit-post-btn">
-                    {editPostButton()}
-                </div>
+                {editPostButton()}
             </div>
             <div className="post-photo-container">
                 {postPhoto()}

@@ -10,12 +10,16 @@ import {
 import Profile from "./profile";
 
 import { popUpModal } from "../../actions/modal_actions";
+import { fetchComments } from "../../actions/comment_actions";
 
 const mSTP = ( state, ownProps ) => {
-    // //
+    
+    const posts = state.entities.posts ? Object.values(state.entities.posts) : null
     return ({
         user: state.entities.users[ownProps.match.params.userId],
-        currrentUser: state.session.currrentUser
+        currentUser: state.session.currentUser,
+        posts: posts,
+        users: state.entities.users
 
     })
 };
@@ -28,6 +32,8 @@ const mDTP = dispatch => ({
     createPost: post => dispatch(createPost(post)),
     updatePost: post => dispatch(updatePost(post)),
     deletePost: postId => dispatch(deletePost(postId)),
+    fetchComments: () => dispatch(fetchComments()),
+    popUpModal: () => dispatch(popUpModal('createpost')),
     editProfile: () => dispatch(popUpModal('edituser'))
 });
 

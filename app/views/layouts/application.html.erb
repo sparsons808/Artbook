@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AppArt</title>
+    <title>artbook</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <style> @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');</style>
     <%= csrf_meta_tags %>
@@ -9,21 +9,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <% if current_user %>
-      <script>
-        window.currentUser = {
-          id: <%= current_user.id %>,
-          name: '<%= current_user.name %>',
-          email: '<%= current_user.email %>'
-        };
-      </script>
-    <% end %>
+    
     <script type="text/javascript">
       window.logo = "<%= image_url('letter.png')%>";
       window.home = "<%= image_url('home.png')%>";
       window.drop = "<%= image_url('more.png')%>";
       window.trash = "<%= image_url('bin.png')%>";
       window.camera = "<%= image_url('camera.png')%>";
+      window.profilephoto = "<%= image_url('profile.jpg')%>"
+      window.coverphoto = "<%= image_url('cover.jpg')%>"
+      window.logoutdrop = "<%= image_url('down-arrow.png')%>"
+      window.logout = "<%= image_url('logout.png')%>"
+      window.github = "<%= image_url('github.png')%>"
+      window.linkedin = "<%= image_url('linkedin.png')%>"
+      window.angellist = "<%= image_url('angellist.png')%>"
     </script>
   </head>
 

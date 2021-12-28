@@ -5,7 +5,11 @@ import { Link, Redirect } from "react-router-dom";
 class Nav extends React.Component {
     constructor(props) {
         super(props)
-        this.handleClick = this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this);
+        this.openDropDown = this.openDropDown.bind(this);
+        this.state = {
+            open: false
+        }
     }
 
     handleClick(e) {
@@ -13,8 +17,15 @@ class Nav extends React.Component {
         this.props.logout()
     }
 
+    openDropDown(e) {
+        e.preventDefault();
+        this.setState(prevState => ({
+            open: !prevState.open
+        }));
+    }
+
     render() {
-        // //
+        
         const userId = this.props.currentUser.id
         return (
             <nav>
@@ -33,10 +44,33 @@ class Nav extends React.Component {
                     </Link>
                 </div>
                 <div className="profile-link-nav">
-                    <Link to={`/profile/${userId}`}>{this.props.currentUser.name}</Link>
+                    <Link className="profile-nav" to={`/profile/${userId}`}>
+                        <div className="nav-img-container">
+                            { this.props.currentUser.profilePhotoUrl ? (
+                                <img className="nav-img" src={this.props.currentUser.profilePhotoUrl} />
+                            ) : (
+                                <img className="nav-img" src={profilephoto} />
+                            )}
+                        </div>
+                        <div className="current-user-name">
+                            {this.props.currentUser.name}
+                        </div>
+                    </Link>
                 </div>
                 <div className="logout-dropdown">
-                    <button onClick={this.handleClick}>Logout</button>
+                    <div onClick={this.openDropDown} alt="https://roundicons.com/">
+                        <img className="logout-photo" src={logoutdrop} />
+                    </div>
+                    { this.state.open ? (
+                        <div className="logout-menu">
+                            <div onClick={this.handleClick} > 
+                                <img  src={logout} alt="https://www.flaticon.com/authors/smashicons" />
+                                <span className="logout-logout">Logout</span>
+                            </div>
+                        </div>
+                        ) : (
+                        <div className="no-dropdown"></div>
+                    )}
                 </div>
             </nav>
     

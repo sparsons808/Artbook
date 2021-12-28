@@ -9,9 +9,12 @@ class UserNav extends React.Component {
             coverPhoto: null,
             profilePhotoUrl: null,
             coverPhotoUrl: null,
+            isOpen: false
         }
         
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggleSave = this.toggleSave.bind(this);
+        this.cancel = this.cancel.bind(this)
     }
 
 
@@ -32,6 +35,7 @@ class UserNav extends React.Component {
             }
             if(file) {
                 fileReader.readAsDataURL(file);
+                this.toggleSave()
             }
 
         }
@@ -39,6 +43,17 @@ class UserNav extends React.Component {
         
     }
 
+    toggleSave() {
+        this.setState(prevState => ({
+            isOpen: !prevState.isOpen
+        }))
+    }
+
+    cancel(e) {
+        e.preventDefault()
+        this.setState({ coverPhotoUrl: null, profilePhotoUrl: null })
+        this.toggleSave()
+    }
 
     handleSubmit(e) {
         e.preventDefault()
@@ -52,8 +67,11 @@ class UserNav extends React.Component {
         if(this.state.coverPhoto) {
             formData.append('user[cover_photo]', this.state.coverPhoto)
         }
-
-        this.props.updateUser(formData)
+        this.toggleSave()
+        
+        this.props.updateUser(formData).then(
+            this.props.fetchUser(this.props.user.id) 
+        )
     }
 
 
@@ -67,7 +85,7 @@ class UserNav extends React.Component {
                 {user.coverPhotoUrl ? (
                     <img src={user.coverPhotoUrl} alt="" />
                 ) : (
-                    <div className="cover-replacement"></div>
+                    <img src={coverphoto} />
                 )
                 }
             </div>
@@ -77,7 +95,7 @@ class UserNav extends React.Component {
                 {user.profilePhotoUrl ? (
                     <img src={user.profilePhotoUrl}/>
                 ): (
-                    <p>{user.name}</p>
+                    <img src={profilephoto} />
                 )
                 } 
             </div>
@@ -86,7 +104,14 @@ class UserNav extends React.Component {
         
         return (
             <div className="edit-nav-container">
-        
+                
+                { this.state.isOpen ? (
+                    <div className="save-cancle">
+                        <div onClick={this.handleSubmit}>Save</div>
+                        <div onClick={this.cancel}>Cancel</div>
+                    </div>
+                ) : null }
+
                 {coverPhoto()}
                 
                 <div className="cover-photo-edit">
@@ -97,16 +122,15 @@ class UserNav extends React.Component {
                             alt="Credit: www.flaticon.com/authors/kiranshastry" 
                         />
                     </label>
+                    <span className="camera-cover">Edit Cover Photo</span>
                     <input
                         className="file"
                         type="file"
                         id="cover"
                         onChange={this.handleFile('coverPhoto')}
                     />
-
-                    <button onClick={this.handleSubmit}>Save</button>
-                </div>  
-               
+                </div>
+                
                 {profilePhoto()}
                 <div className="profile-photo-edit">
                     <label className="camera-icon-label" htmlFor="profile">
@@ -122,7 +146,6 @@ class UserNav extends React.Component {
                         type="file"
                         onChange={this.handleFile('profilePhoto')}
                     />
-                    <button onClick={this.handleSubmit}>Save</button>
                 </div>
 
                 <div className="username">

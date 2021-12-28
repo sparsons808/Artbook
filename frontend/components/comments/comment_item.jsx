@@ -7,7 +7,8 @@ const CommentItem = ({
     author,
     updateComment,
     deleteComment,
-    currentUser
+    currentUser,
+    userPhoto
 }) => {
 
     const editCommentButton = () => (
@@ -20,6 +21,11 @@ const CommentItem = ({
 
     return (
         <div className="comment-item">
+            { userPhoto ? (
+                <img className="comment-avatar" src={userPhoto} />
+            ) : (
+                <img className="comment-avatar" src={profilephoto} />
+            )}
             <div className="comment-content">
                 <div className="commentor-name">
                     <Link to={`/profile/${author.id}`}>{author.name}</Link> 
