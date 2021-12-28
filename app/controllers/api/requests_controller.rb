@@ -38,7 +38,9 @@ class Api::RequestsController < ApplicationController
             render :show
         else
             render json: @friend.errors.full_messages, status: 422
+        end
     end
+
     def destroy
         @request = Request.find_by(id: params[:id])
 
