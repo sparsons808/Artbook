@@ -14,12 +14,12 @@ local:
 #   region: us-east-1
 #   bucket: your_own_bucket
 
-# amazon_dev:
-#   service: S3
-#   access_key_id: <%= ENV['production_access_key_id'] %>
-#   secret_access_key: <%= ENV['production_secret_access_key'] %>
-#   region: <%= ENV['production_region'] %>
-#   bucket: <%= ENV['production_bucket'] %>
+amazon_dev:
+  service: S3
+  access_key_id: <%= ENV['production_access_key_id'] %>
+  secret_access_key: <%= ENV['production_secret_access_key'] %>
+  region: <%= ENV['production_region'] %>
+  bucket: <%= ENV['production_bucket'] %>
 
 amazon_prod:
   service: S3
