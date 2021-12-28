@@ -13,11 +13,12 @@ import { popUpModal } from "../../actions/modal_actions";
 import { fetchComments } from "../../actions/comment_actions";
 
 const mSTP = ( state, ownProps ) => {
-    // //
+    
+    const posts = state.entities.posts ? Object.values(state.entities.posts) : null
     return ({
         user: state.entities.users[ownProps.match.params.userId],
         currentUser: state.session.currentUser,
-        posts: state.entities.posts
+        posts: posts
 
     })
 };

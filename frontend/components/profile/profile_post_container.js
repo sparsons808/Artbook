@@ -1,6 +1,7 @@
-import Posts from "./posts";
+import Posts from "../posts/posts";
 import { updatePost, deletePost } from "../../util/post_api";
 import { popUpModal } from "../../actions/modal_actions";
+import { connect } from "react-redux";
 
 const mSTP = (state, ownProps) => {
     return ({

@@ -19,7 +19,6 @@ const CommentsReducer = (state = {}, action) => {
             delete nextState[action.commentId]
             return nextState
         default:
-            debugger
             return state
     }
 };

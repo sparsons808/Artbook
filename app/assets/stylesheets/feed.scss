@@ -18,7 +18,7 @@
 .post-form {
     display: flex;
     // flex-wrap: wrap;
-    width: 500px;
+    width: 477px;
     height: 100px;
     justify-content: center;
     align-items: center;
@@ -105,7 +105,7 @@
 
 .post-container {
     display: flexbox;
-    width: 500px;
+    width: 477px;
     justify-content: center;
     grid-area: middle;
     overflow-y: scroll;
@@ -233,14 +233,21 @@
 
 .links-container div {
     display: flex;
+    width: 211px;
     padding: 10px;
     align-items: flex-end;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     flex-direction: row;
+
+}
+
+.links-container div:hover{
+    background-color: lightgray;
+
 }
 
 .links-container img {
-    width: 35px;
+    width: 28px;
 }
 
 .links-container div a {
@@ -248,6 +255,7 @@
     color: black;
     display: flex;
     align-items: flex-end;
+    padding: 7px;
 }
 
 .links-container div a span {
@@ -255,15 +263,15 @@
 }
 
 .github-link {
-    margin-left: -16px;
+    margin-left: -1px;
 }
 
 .side-menue-profile-pic {
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 28px;
+    height: 28px;
 }
 
 .to-currentUser {
-    margin-left: -21px;
+    margin-left: 1px;
 }

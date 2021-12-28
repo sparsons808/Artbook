@@ -1,10 +1,9 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserNaveContainer from "./user_nav_container"
-// import PostIndexContainerProfile from "../posts/post_index_container_profile";
-// import CreatePostContainer from "../posts/create_post_form_container";
 import NavContainer from "../session/nav_container";
 import Modal from "../modal/modal";
+import PostContainer from "./profile_post_container";
 
 class Profile extends React.Component {
     constructor(props) {
@@ -14,14 +13,15 @@ class Profile extends React.Component {
     componentDidMount() {
         // //
         this.props.fetchUsers()
-        this.props.fetchPosts().then(this.props.fetchComments())
+        .then(this.props.fetchPosts()
+        .then(this.props.fetchComments()))
     }
     
     render() {
         // //
         if (!this.props.user) return null;
-        debugger
-        const { user } = this.props
+        
+        const { user, posts, comments } = this.props
         return (
             <div className="profile-page">
                 <NavContainer/>
@@ -52,7 +52,12 @@ class Profile extends React.Component {
                                 </form>
                             </div>
                             <Modal userProfile={user.id}/>
-                           {/* <PostIndexContainerProfile user={user} /> */}
+                           <PostContainer 
+                                className="posts-profile" 
+                                posts={posts} 
+                                user={user} 
+                                comments={comments} 
+                            />
                         </div>
                     </div>
                     <div className="profile-left">

@@ -7,7 +7,7 @@ class Api::FeedsController < ApplicationController
         friends = current_user.friends_requested.where(accepted: true).includes(requestee: [:posts])
         other_friends = current_user.friend_requests.where(accepted: true).includes(requestor: [:posts])
 
-
+        
         friends.each do |friend|
             @posts += friend.requestee.posts
         end
