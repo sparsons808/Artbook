@@ -30,7 +30,7 @@ class Nav extends React.Component {
         return (
             <nav>
                 <div className="logo">
-                    <img src={logo} alt="www.flaticon.com/authors/hight-quality-icons" />
+                    <img src={logo} alt="https://www.flaticon.com/authors/hight-quality-icons" />
                 </div>
                 <div className="home">
                     <Link to="/feed">

@@ -212,9 +212,15 @@ body {
 }
 
 .logo {
-    padding: 5px;
-    margin-top: 5px;
+    padding: 7px;
+    margin-top: 6px;
+    margin-left: 1px;
     grid-column: 1/2;
+}
+
+.logo img {
+    width: 25px;
+    height: 25px;
 }
 
 .home {
