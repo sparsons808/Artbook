@@ -32,56 +32,57 @@ class Profile extends React.Component {
                         <UserNaveContainer userId={user.id} />
 
                     </div>
-                    <div className="profile-wall">
-                        <div className="post-index-profile">
-                            <div className="post-form">
-                                <div className="profile-photo" >
-                                    { this.props.currentUser.profilePhotoUrl ? ( 
-                                        <img src={this.props.currentUser.profilePhotoUrl}/>
-                                    ) : (
-                                        <img src={profilephoto}/>
-                                    )}
+                    <div className="wall-conainer">
+                        <div className="profile-left">
+                            <div className="info">
+                                <div>
+                                    <span>Intro</span>
                                 </div>
-                                <form>
-                                    <textarea 
-                                        onClick={() => this.props.popUpModal()}
-                                        placeholder={`Whats on your mind ${this.props.currentUser.name}?`}
-                                        cols="55" 
-                                        rows="2.5"
-                                    >
-                                    </textarea>
-                                </form>
+                                <div>
+                                bio: {user.bio}
+                                </div>
+                                <div>
+                                work: {user.work}
+                                </div>
+                                <div>
+                                home: {user.location}
+                                </div>
                             </div>
-                            <Modal userProfile={user.id}/>
-                           <PostContainer 
-                                className="posts-profile" 
-                                posts={posts} 
-                                user={user} 
-                                comments={comments} 
-                            />
+                            <div className="profile-friends">
+                                <span>Friends</span>
+                                <Friends friends={users}/>
+                            </div>
+                        </div>
+                        <div className="profile-wall">
+                            <div className="post-index-profile">
+                                <div className="post-form">
+                                    <div className="profile-photo" >
+                                        { this.props.currentUser.profilePhotoUrl ? ( 
+                                            <img src={this.props.currentUser.profilePhotoUrl}/>
+                                        ) : (
+                                            <img src={profilephoto}/>
+                                        )}
+                                    </div>
+                                    <form>
+                                        <textarea 
+                                            onClick={() => this.props.popUpModal()}
+                                            placeholder={`Whats on your mind ${this.props.currentUser.name}?`}
+                                            cols="55" 
+                                            rows="2.5"
+                                        >
+                                        </textarea>
+                                    </form>
+                                </div>
+                                <Modal userProfile={user.id}/>
+                            <PostContainer 
+                                    className="posts-profile" 
+                                    posts={posts} 
+                                    user={user} 
+                                    comments={comments} 
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div className="profile-left">
-                        <div className="info">
-                            <div>
-                                <span>Intro</span>
-                            </div>
-                            <div>
-                            bio: {user.bio}
-                            </div>
-                            <div>
-                            work: {user.work}
-                            </div>
-                            <div>
-                            home: {user.location}
-                            </div>
-                        </div>
-                        <div className="profile-friends">
-                            <span>Friends</span>
-                            <Friends friends={users}/>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         )

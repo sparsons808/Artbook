@@ -1,12 +1,15 @@
 .edit-nav-container {
     width: 100%;
     height: 100%;
+    margin-top: -45px;
     grid-column: 4/10;
     grid-row: 1/6;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    align-items: center;   
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;  
 }
 
 
@@ -19,6 +22,9 @@
     grid-row: 6/9;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 19%;
 }
 
 .profile-photo-edit {
@@ -30,6 +36,9 @@
     grid-row: 8/9;
     margin-left: 6px;
     margin-top: 1px;
+    position: absolute;
+    top: 65%;
+    left: 29%;
 }
 
 .profile-photo-edit label img {
@@ -62,6 +71,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
+    align-items: start
     // justify-content: center;
     // align-items: center;
 }
@@ -73,6 +83,7 @@
     // grid-template-columns: repeat(12, 1fr);
     // grid-template-rows: repeat(12, 1fr);
     width: 100%;
+    height: 105%;
     // height: 60%;
     background: rgb(248, 247, 247);
     box-shadow: 0.01px 1px 10px rgba(205, 205, 205, 0.96);
@@ -81,9 +92,7 @@
 
 
 .cover-photo-container {
-    width: 100%;
-    grid-column: 3/11;
-    grid-row: 1/8;
+    width: 61%;
 }
 
 .cover-photo-container img {
@@ -116,6 +125,7 @@
     width: 200px;
     grid-column: 3/8;
     grid-row: 11/13;
+    position: absolute;
 }
 
 .username {
@@ -123,11 +133,13 @@
     width: 70px;
     grid-column: 5/8;
     grid-row: 9/11;
+    position: absolute;
 }
 
 .username span {
     font-size: 25px;
     font-style: bolder;
+    
 }
 // .cover-photo-edit label {
 //     width: 100px;
@@ -140,15 +152,17 @@
 
 .cover-photo-edit {
     display: flex;
+    width: 11%;
     justify-content: flex-start;
     background-color: lightgray;
     border-radius: 5px;
-    width: 164px;
+    left: 69%;
+    top: 371px;
     height: 35px;
-    grid-column: 9/12;
-    grid-row: 7/8;
+    position: absolute;
     cursor: pointer;
     align-items: center;
+    position: absolute;
 }
 .camera-cover {
     color: black;
@@ -219,14 +233,19 @@
 }
 
 .profile-wall {
-    grid-column: 8/12;
-    grid-row: 10/13;
+    padding: 12px
 }
 
+.wall-conainer {
+    width: 100%;
+    display: flex;
+    grid-row: 10/12;
+    padding: 6px;
+    grid-column: 1/12;
+}
 
 .profile-left {
-    grid-column: 2/6;
-    grid-row: 10/13;
+    padding: 12px
 }
 
 .save-cancle {
