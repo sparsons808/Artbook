@@ -20,6 +20,9 @@ class DropDownMenu extends React.Component {
     constructor(props) {
         super(props)
         this.handleDelete = this.handleDelete.bind(this)
+        this.state = { isOpen: false }
+
+        this.toggleState = this.toggleState.bind(this)
     }
 
 
@@ -32,6 +35,11 @@ class DropDownMenu extends React.Component {
         }
     }
 
+    toggleState() {
+        this.setState( prevState => ({
+            isOpen: !prevState.isOpen
+        }))
+    }
 
     render() {
         
@@ -47,7 +55,7 @@ class DropDownMenu extends React.Component {
                         Edit Post
                     </div>
                 ) : (
-                    <div>
+                    <div onClick={this.toggleState}>
                         Edit Comment
                     </div>
                 )}

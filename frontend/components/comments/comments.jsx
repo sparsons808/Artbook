@@ -1,5 +1,5 @@
 import React from "react";
-import CommentItem from "./comment_item";
+import CommentItemContainer from "./comment_item";
 
 class Comments extends React.Component {
     constructor(props) {
@@ -13,12 +13,10 @@ class Comments extends React.Component {
             if(comment.post_id === this.props.postId) {
 
                 return (
-                    <CommentItem
+                    <CommentItemContainer
                         key={comment.id}
                         comment={comment}
                         author={comment.author}
-                        updateComment={this.props.updateComment}
-                        deleteComment={this.props.deleteComment}
                         currentUser={this.props.currentUser}
                         userPhoto={comment.userphoto}
                     />

@@ -20,7 +20,7 @@ amazon_dev:
   secret_access_key: <%= ENV['production_secret_access_key'] %>
   region: <%= ENV['production_region'] %>
   bucket: <%= ENV['production_bucket'] %>
-  
+
 amazon_prod:
   service: S3
   access_key_id: <%= ENV['production_access_key_id'] %>

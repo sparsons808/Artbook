@@ -37,10 +37,13 @@ export const createComment = (comment) => dispatch => {
     )
 };
 
-export const updateComment = (comment) => dispatch => {
+export const updateComment = (comment, id) => dispatch => {
     return (
-        CommentAPIUtil.updateComment(comment)
-            .then( comment => dispatch(receiveComment(comment)))
+        CommentAPIUtil.updateComment(comment, id)
+            .then( comment => {
+                
+                dispatch(receiveComment(comment))
+            })
     )
 };
 
