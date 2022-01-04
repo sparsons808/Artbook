@@ -149,9 +149,9 @@ class UserNav extends React.Component {
                 </div>
 
                 <div className="username">
-                    <span>
+                    <p className="username-text">
                         {user.name}
-                    </span>
+                    </p>
                 </div>
 
                 <div className="profile-nav">

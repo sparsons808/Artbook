@@ -137,14 +137,11 @@
     grid-row: 9/11;
     position: absolute;
     top: 59%;
-    left: 35%;
+    left: 33%;
 }
 
-.username span {
-    font-size: 25px;
-    font-style: bolder;
-    
-}
+  
+
 // .cover-photo-edit label {
 //     width: 100px;
 //     height: 100px;
@@ -336,3 +333,14 @@
     align-items: center;
     margin-top: -28px;
 }
+
+.username-text {
+    font-family: inherit;
+    font-style: italic;
+    text-align: center;
+    font-weight: 550;
+    font-size: 20px;
+}
+
+
+

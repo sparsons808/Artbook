@@ -73,25 +73,30 @@ class PostForm extends React.Component {
             <div>
                 <div className="post-form-modal">
                     <form onSubmit={this.handleSubmit}>
-                        <textarea
+                        <input
+                            className="text-form"
                             onChange={this.handleChange('body')}
                             value={this.state.body}
                             placeholder={`What's on your mind ${this.props.currentUser.name}?`}  
-                            cols="55" 
-                            rows="10"
-                        ></textarea>
-                        <div className="preview-container">{photoPreview}</div>
-                        <div className="upload-container">
-                            <label className="upload-photo" htmlFor="file-input">
-                                <span className="add-photo">Add Photo</span>
-                                <div className="add-photo-input">
-                                </div>
-                            </label>
-                            <input type="file" id="photo-file-input" onChange={this.handleFile} />
+                            type='text'
+                        />
+                        <div className="preview-container">
+                            {photoPreview}
                         </div>
-                        <button className="post-form-button">
-                            {this.props.formType} Post
-                        </button>
+                        <div className="upload-container">
+                            <label className="upload-photo" htmlFor="photo-file-input">
+                                <div className="add-photo">Add Photo</div>
+                            </label>
+                            <input 
+                                className="file"
+                                type="file" 
+                                id="photo-file-input" 
+                                onChange={this.handleFile} 
+                            />
+                            <button className="post-form-button">
+                                {this.props.formType} Post
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
