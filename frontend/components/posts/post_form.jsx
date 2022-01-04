@@ -73,13 +73,15 @@ class PostForm extends React.Component {
             <div>
                 <div className="post-form-modal">
                     <form onSubmit={this.handleSubmit}>
-                        <input
+                        <textarea
                             className="text-form"
                             onChange={this.handleChange('body')}
                             value={this.state.body}
                             placeholder={`What's on your mind ${this.props.currentUser.name}?`}  
                             type='text'
-                        />
+                            rows="20"
+                            cols="30"
+                        ></textarea>
                         <div className="preview-container">
                             {photoPreview}
                         </div>

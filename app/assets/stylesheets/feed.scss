@@ -33,13 +33,21 @@
 
 .post-form form textarea {
     border: none;
-    width: 95%;
+    width: 117%;
     justify-self: center;
     border-radius: 20px;
     padding-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    resize: none;
     box-shadow:
     -0.75px -0.75px 0.75px rgba(230, 230, 230, 0.96) inset,
     0.75px 0.75px 0.75px rgba(230, 230, 230, 0.96) inset;    
+}
+
+.post-form form textarea::placeholder {
+    position: absolute;
+    top: 25%;
+    left: 2%;
 }
 
 .post-btns {
@@ -176,7 +184,8 @@
 }
 
 .comment-container {
-    padding: 20px;
+    padding: 7px;
+    margin-left: 13px;
 }
 
 .like-btn {
@@ -282,3 +291,7 @@
 .to-currentUser {
     margin-left: 1px;
 }
+
+// .post-photo-container {
+
+// }

@@ -15,7 +15,7 @@ const PostItem = ({
     const postPhoto = () => (
         <div className="post-photo">
             { post.photo ? (
-                <img src={post.photo} />
+                <img className="post-image" src={post.photo} />
             ) : (
                 <div></div>
             )}

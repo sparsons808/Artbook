@@ -132,12 +132,14 @@
 
 .username {
     justify-self: center;
-    width: 70px;
+    display: flex;
+    width: 194px;
     grid-column: 5/8;
     grid-row: 9/11;
     position: absolute;
     top: 59%;
-    left: 33%;
+    left: 34%;
+    justify-content: flex-start;
 }
 
   
@@ -219,7 +221,7 @@
 
 .profile-friends {
     width: 310px;
-    height: 280px;
+    height: fit-content;
     max-width: 450px;
     background: rgb(248, 247, 247);
     display: flex;
@@ -236,7 +238,8 @@
 }
 
 .profile-wall {
-    padding: 12px
+    padding: 12px;
+    width: 47%;
 }
 
 .wall-conainer {
@@ -307,6 +310,7 @@
 .friend a div {
     margin-left: 9px;
     padding-bottom: 2px;
+    width: 92px;
 }
 
 .profile-friends span {
@@ -324,6 +328,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;;
     align-items: center;
+    margin-top: 6px;
 }
 
 .profile-link-nav a {
@@ -342,5 +347,7 @@
     font-size: 20px;
 }
 
-
+.friend {
+    height: 138px;
+}
 

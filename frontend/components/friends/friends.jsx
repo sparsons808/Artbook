@@ -15,7 +15,9 @@ class Friends extends React.Component {
     render() {
         const { friends } = this.props
 
-        const friend = Object.values(friends).map( friend => {
+        const friend = Object.values(friends).filter( (user, idx) => (
+            user.name != 'Demo Artist' && idx < 10
+        )).map( friend => {
             return (
                 <Friend
                     key={friend.id + 2}
