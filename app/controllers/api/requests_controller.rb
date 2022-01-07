@@ -13,7 +13,6 @@ class Api::RequestsController < ApplicationController
     def show
         @user = User.find(params[:id])
         @users = []
-
         friends = current_user.friends_requested.where(accepted: true).includes(:requestee)
         other_friends = current_user.friend_requests.where(accepted: true).includes(:requestor)
         friends += other_friends
