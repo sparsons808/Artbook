@@ -29,7 +29,8 @@ class Post < ApplicationRecord
     foreign_key: :liker_id,
     class_name: :Like
 
-    has_many :likes, as: :notable
+    has_many :likes, 
+        as: :notable
 
     
 end

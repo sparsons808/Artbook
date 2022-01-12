@@ -10,8 +10,9 @@
 #  notable_id   :bigint
 #
 class Like < ApplicationRecord
-    
-    belongs_to :notable, polymorphic: true
+    validates :notable_type, :liker_id, :notable_id, presence: true
+    belongs_to :notable, 
+        polymorphic: :true
     
     
 end
