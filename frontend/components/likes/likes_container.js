@@ -11,3 +11,4 @@ const mDTP = (dispatch) => ({
     deleteLike: likeId => dispatch(deleteLike(likeId)),
 })
 
+export default connect(mSTP, mDTP)(Likes);
