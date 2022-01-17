@@ -1,6 +1,6 @@
 import Likes from "./likes";
 import { connect } from "react-redux";
-import { addLike, deleteLike, getLikes } from "../../actions/likes_actions";
+import { addLike, deleteLike } from "../../actions/likes_actions";
 
 const mSTP = (state) => ({
     likes: state.entities.likes

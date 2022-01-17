@@ -8,6 +8,7 @@ import {
 } from '../../actions/post_actions'
 import { popUpModal } from "../../actions/modal_actions";
 import { fetchComments } from "../../actions/comment_actions";
+import { getLikes } from "../../actions/likes_actions";
 
 const mSTP = (state) => {
     
@@ -24,6 +25,7 @@ const mDTP = dispatch => ({
     createPost: (post) => dispatch(createPost(post)),
     deletePost: (postId) => dispatch(deletePost(postId)),
     fetchComments: () => dispatch(fetchComments()),
+    getLikes: () => dispatch(getLikes()),
     popUpModal: () => dispatch(popUpModal('createpost'))
 })
 
