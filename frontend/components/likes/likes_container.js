@@ -1,9 +1,11 @@
 import Likes from "./likes";
 import { connect } from "react-redux";
 import { addLike, deleteLike } from "../../actions/likes_actions";
+import entities from "../../reducers/entities";
 
-const mSTP = (state) => ({
-    likes: state.entities.likes
+const mSTP = (state, Ownprops) => ({
+    likes: state.entities.likes,
+    post: state.entities.posts[Ownprops.postId]
 })
 
 const mDTP = (dispatch) => ({
