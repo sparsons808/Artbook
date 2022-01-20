@@ -10,7 +10,7 @@ class Likes extends React.Component {
         return (
             <div>
                 <div>
-                    
+                    <img className="thumbsup" src={thumbsUp} />
                 </div>
                 <div>
                     {this.state.likes.length}
