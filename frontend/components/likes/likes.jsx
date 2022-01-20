@@ -7,7 +7,9 @@ class Likes extends React.Component {
         this.state = this.props.likes
     }
     render() {
-        return null
+        return (
+            <div></div>
+        )
     }
 }
 
