@@ -19,4 +19,5 @@ class Likes extends React.Component {
         )
     }
 }
+
 export default Likes;
